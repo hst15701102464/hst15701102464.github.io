@@ -17,15 +17,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hst15701102464.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"hst15701102464.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="你的子弹,便是你的药丸">
+  <meta name="description" content="写屎山多是一件美逝啊！">
 <meta property="og:type" content="website">
-<meta property="og:title" content="追光少年呼松涛">
+<meta property="og:title" content="呼松涛的个人博客">
 <meta property="og:url" content="https://hst15701102464.github.io/index.html">
-<meta property="og:site_name" content="追光少年呼松涛">
-<meta property="og:description" content="你的子弹,便是你的药丸">
+<meta property="og:site_name" content="呼松涛的个人博客">
+<meta property="og:description" content="写屎山多是一件美逝啊！">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="呼松涛">
 <meta name="twitter:card" content="summary">
@@ -43,7 +43,7 @@
   };
 </script>
 
-  <title>追光少年呼松涛</title>
+  <title>呼松涛的个人博客</title>
   
 
 
@@ -94,7 +94,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">追光少年呼松涛</h1>
+      <h1 class="site-title">呼松涛的个人博客</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -177,11 +177,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="呼松涛">
-      <meta itemprop="description" content="你的子弹,便是你的药丸">
+      <meta itemprop="description" content="写屎山多是一件美逝啊！">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追光少年呼松涛">
+      <meta itemprop="name" content="呼松涛的个人博客">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -197,7 +197,20 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-02-09 16:55:08 / 修改时间：17:16:46" itemprop="dateCreated datePublished" datetime="2022-02-09T16:55:08+08:00">2022-02-09</time>
+              <time title="创建时间：2022-02-09 16:55:08 / 修改时间：19:01:57" itemprop="dateCreated datePublished" datetime="2022-02-09T16:55:08+08:00">2022-02-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+                </span>
             </span>
 
           
@@ -211,116 +224,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>  各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode&#x2F;DataNode&#x2F;ResourceManager&#x2F;NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。<BR><br>  这里介绍一个shell方法，每间隔60s检测一次，发现异常即重启，并将重启记录写入MySQL，便于后续分析<BR><br>  首先要在MySQL的bigdata库建表：<BR>  </p>
-<pre><code>CREATE TABLE bigdata.hadoop_process_log (
-`node` varchar(255) DEFAULT NULL COMMENT &#39;节点&#39;,
-`typeName` varchar(255) DEFAULT NULL COMMENT &#39;进程类型&#39;,
-`logtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT &#39;创建时间&#39;
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=&#39;大数据hadoop进程重启记录表&#39;;  
-</code></pre>
-<p>  脚本如下：<BR></p>
-<pre><code>#!/bin/bash 
-# 功能：检测Hadoop进程
-# Create：hst
-# Time：2022-01-25 14:50:00
-# Last Modify Developer：husongtao
-# Last Modify Time：2022-01-25 14:50:00
+          <p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。<BR></BR></p>
+<p style="text-indent:2em;">这里介绍一个shell方法，每间隔60s检测一次，发现异常即重启，并将重启记录写入MySQL，便于后续分析<BR></BR></p>
+<p style="text-indent:2em;">首先要在MySQL的bigdata库建表:<BR></BR></p>
 
-while :
-do
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bigdata.hadoop_process_log (</span><br><span class="line">	`node` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;节点&#x27;</span>,</span><br><span class="line">	`typeName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;进程类型&#x27;</span>,</span><br><span class="line">	`logtime` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span></span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 COMMENT<span class="operator">=</span><span class="string">&#x27;大数据hadoop进程重启记录表&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-rebootYarnFlag=0
-rebootHdfsFlag=0
-
-
-#方法1：检测hadoop进程
-Fn_CheckHdp()
-&#123;
-    ssh -p 52001 $1 &quot;$JAVA_HOME/bin/jps|egrep -w $2&quot; &gt; /dev/null
-&#125;
-
-
-#方法2：重启hadoop进程
-
-#为调用方便，ip端口写死在里面，需手动修改
-Fn_RebootHdp()
-&#123;
-    case $1 in
-    &quot;yarn&quot;)
-    ssh -p 52001 hadoop3-215 &quot;sh $HADOOP_HOME/sbin/stop-yarn.sh; sh $HADOOP_HOME/sbin/start-yarn.sh&quot;  &gt; /dev/null
-    rebootYarnFlag=1
-    ;;
-    &quot;hdfs&quot;)
-    ssh -p 52001 hadoop3-215 &quot;sh $HADOOP_HOME/sbin/stop-dfs.sh;sh $HADOOP_HOME/sbin/start-dfs.sh&quot;   &gt; /dev/null
-    rebootHdfsFlag=1
-    ;;
-    *)
-    esac
-&#125;
-
-#方法3：hadoop进程失败记录写入MySQL
-
-#为调用方便，ip端口用户密码 写死在里面，需手动修改
-Fn_LoadHdpLog()
-&#123;
-    sql=&quot;insert into hadoop_process_log(node,typename) values(\&quot;$1\&quot;,\&quot;$2\&quot;)&quot;
-    #echo &quot;$sql&quot;
-    mysql -hhadoop3-217 -uroot -p111111 -P23306 bigdata -e &quot;$sql&quot;
-&#125;
-
-
-
-#=================== 检查ResourceManager、NameNode服务器 ===================
-
-    #1.检测 ResourceManager 进程
-    Fn_CheckHdp hadoop3-215 ResourceManager
-    if [ 0 -ne $? ]
-    then
-        echo &quot;ResourceManager异常,即将重启YARN进程&quot;
-        Fn_RebootHdp yarn
-        Fn_LoadHdpLog hadoop3-215 ResourceManager
-    fi
-
-    #2.检测 NameNode 进程
-    Fn_CheckHdp hadoop3-215 NameNode
-    if [ 0 -ne $? ]
-    then
-    echo &quot;NameNode异常,即将重启HDFS进程&quot;
-        Fn_RebootHdp hdfs
-        Fn_LoadHdpLog hadoop3-215 NameNode
-    fi
-    
-#=================== 检查其他服务器 ===================    
-for host in hadoop3-213 hadoop3-214 hadoop3-215  hadoop3-216 hadoop3-217 hadoop3-218 hadoop3-219
-do
-    echo ====================    $host    ====================
-
-    ##1.检测 NodeManager 进程
-    Fn_CheckHdp $host NodeManager
-    if [ 0 -ne $? ] &amp;&amp; [ $rebootYarnFlag -eq 0 ]
-    then
-        echo &quot;NodeManager异常,即将重启yarn进程&quot;
-        Fn_RebootHdp yarn
-        Fn_LoadHdpLog $host NodeManager
-    fi    
-    
-    ##2.检测 DataNode 进程
-    Fn_CheckHdp $host DataNode
-    if [ 0 -ne $? ] &amp;&amp; [ $rebootHdfsFlag -eq 0 ]
-    then
-    echo &quot;DataNode异常,即将重启HDFS进程&quot;
-        Fn_RebootHdp hdfs
-        Fn_LoadHdpLog $host DataNode
-    fi    
-    
-done
-
-echo &quot;Hadoop进程检测完毕！&quot;
-
-sleep 60
-done
-</code></pre>
-<p>  各位小伙伴记得修改哦，不要把主机端口等参数弄错了！最后后台运行就可以了，日志表如下图：<BR><br><img src="/hadoop%E8%BF%9B%E7%A8%8B%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%87%8D%E5%90%AF/hadoop%E8%BF%9B%E7%A8%8B%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%87%8D%E5%90%AF-1.jpg" alt="mysql日志表">  </p>
+<p>脚本如下：<BR></BR></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment"># 功能：检测Hadoop进程</span></span><br><span class="line"><span class="comment"># Create：hst</span></span><br><span class="line"><span class="comment"># Time：2022-01-25 14:50:00</span></span><br><span class="line"><span class="comment"># Last Modify Developer：husongtao</span></span><br><span class="line"><span class="comment"># Last Modify Time：2022-01-25 14:50:00</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">rebootYarnFlag=0</span><br><span class="line">rebootHdfsFlag=0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法1：检测hadoop进程</span></span><br><span class="line"><span class="function"><span class="title">Fn_CheckHdp</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	ssh -p 52001 <span class="variable">$1</span> <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/jps|egrep -w <span class="variable">$2</span>&quot;</span> &gt; /dev/null</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法2：重启hadoop进程</span></span><br><span class="line"><span class="comment">#为调用方便，ip端口写死在里面，需手动修改</span></span><br><span class="line"><span class="function"><span class="title">Fn_RebootHdp</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line">	<span class="string">&quot;yarn&quot;</span>)</span><br><span class="line">	ssh -p 52001 hadoop3-215 <span class="string">&quot;sh <span class="variable">$HADOOP_HOME</span>/sbin/stop-yarn.sh; sh <span class="variable">$HADOOP_HOME</span>/sbin/start-yarn.sh&quot;</span>  &gt; /dev/null</span><br><span class="line">	rebootYarnFlag=1</span><br><span class="line">	;;</span><br><span class="line">	<span class="string">&quot;hdfs&quot;</span>)</span><br><span class="line">	ssh -p 52001 hadoop3-215 <span class="string">&quot;sh <span class="variable">$HADOOP_HOME</span>/sbin/stop-dfs.sh;sh <span class="variable">$HADOOP_HOME</span>/sbin/start-dfs.sh&quot;</span>   &gt; /dev/null</span><br><span class="line">	rebootHdfsFlag=1</span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="keyword">esac</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法3：hadoop进程失败记录写入MySQL</span></span><br><span class="line"><span class="comment">#为调用方便，ip端口用户密码 写死在里面，需手动修改</span></span><br><span class="line"><span class="function"><span class="title">Fn_LoadHdpLog</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	sql=<span class="string">&quot;insert into hadoop_process_log(node,typename) values(\&quot;<span class="variable">$1</span>\&quot;,\&quot;<span class="variable">$2</span>\&quot;)&quot;</span></span><br><span class="line">	<span class="comment">#echo &quot;$sql&quot;</span></span><br><span class="line">	mysql -hhadoop3-217 -uroot -p111111 -P23306 bigdata -e <span class="string">&quot;<span class="variable">$sql</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#=================== 检查ResourceManager、NameNode服务器 ===================</span></span><br><span class="line">	<span class="comment">#1.检测 ResourceManager 进程</span></span><br><span class="line">	Fn_CheckHdp hadoop3-215 ResourceManager</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;ResourceManager异常,即将重启YARN进程&quot;</span></span><br><span class="line">		Fn_RebootHdp yarn</span><br><span class="line">		Fn_LoadHdpLog hadoop3-215 ResourceManager</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">#2.检测 NameNode 进程</span></span><br><span class="line">	Fn_CheckHdp hadoop3-215 NameNode</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;NameNode异常,即将重启HDFS进程&quot;</span></span><br><span class="line">		Fn_RebootHdp hdfs</span><br><span class="line">		Fn_LoadHdpLog hadoop3-215 NameNode</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">#=================== 检查其他服务器 ===================	</span></span><br><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> hadoop3-213 hadoop3-214 hadoop3-215  hadoop3-216 hadoop3-217 hadoop3-218 hadoop3-219</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> ====================    <span class="variable">$host</span>    ====================</span><br><span class="line"></span><br><span class="line">	<span class="comment">##1.检测 NodeManager 进程</span></span><br><span class="line">	Fn_CheckHdp <span class="variable">$host</span> NodeManager</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ] &amp;&amp; [ <span class="variable">$rebootYarnFlag</span> -eq 0 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;NodeManager异常,即将重启yarn进程&quot;</span></span><br><span class="line">		Fn_RebootHdp yarn</span><br><span class="line">		Fn_LoadHdpLog <span class="variable">$host</span> NodeManager</span><br><span class="line">	<span class="keyword">fi</span>	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">##2.检测 DataNode 进程</span></span><br><span class="line">	Fn_CheckHdp <span class="variable">$host</span> DataNode</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ] &amp;&amp; [ <span class="variable">$rebootHdfsFlag</span> -eq 0 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;DataNode异常,即将重启HDFS进程&quot;</span></span><br><span class="line">		Fn_RebootHdp hdfs</span><br><span class="line">		Fn_LoadHdpLog <span class="variable">$host</span> DataNode</span><br><span class="line">	<span class="keyword">fi</span>	</span><br><span class="line">	</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hadoop进程检测完毕！&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>各位小伙伴记得修改哦，不要把主机端口等参数弄错了！最后后台运行就可以了，日志表如下图：<BR><br><img src="/.io//%5Chadoop%E8%BF%9B%E7%A8%8B%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%87%8D%E5%90%AF%5C1.jpg">  </BR></p>
 
       
     </div>
@@ -397,7 +309,7 @@ done
     <img class="site-author-image" itemprop="image" alt="呼松涛"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">呼松涛</p>
-  <div class="site-description" itemprop="description">你的子弹,便是你的药丸</div>
+  <div class="site-description" itemprop="description">写屎山多是一件美逝啊！</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -406,6 +318,18 @@ done
           <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -493,6 +417,80 @@ done
 
   
 
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
 
 </body>
 </html>
