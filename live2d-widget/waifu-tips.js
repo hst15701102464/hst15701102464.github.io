@@ -162,6 +162,8 @@ function loadWidget(config) {
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
+			// // 可以浏览器F12里面看Console里面，
+			//每次点切换看板娘的模型和衣服时都会打印当前切换的模型和材质id，找到自己喜欢的，修改js文件即可
 			modelId = 5; // 模型 ID
 			modelTexturesId = 53; // 材质 ID
 		}
