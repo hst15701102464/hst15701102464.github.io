@@ -1,0 +1,11 @@
+# hexo robots.txt
+User-agent: * Allow: /
+Allow: /archives/
+Allow: /about/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /images/
+
+Sitemap: https://hst15701102464.github.io/sitemap.xml
+Sitemap: https://hst15701102464.github.io/baidusitemap.xml
