@@ -3,9 +3,9 @@
   <entry>
     <title>hadoop进程异常检测重启</title>
     <url>/2022/02/09/hadoopRoot/</url>
-    <content><![CDATA[<p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。<BR></BR></p>
-<p style="text-indent:2em;">这里介绍一个shell方法，每间隔60s检测一次，发现异常即重启，并将重启记录写入MySQL，便于后续分析<BR></BR></p>
-<p style="text-indent:2em;">首先要在MySQL的bigdata库建表:<BR></BR></p>
+    <content><![CDATA[<p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。</p>
+<p style="text-indent:2em;">这里介绍一个shell方法，每间隔60s检测一次，发现异常即重启，并将重启记录写入MySQL，便于后续分析</p>
+<p style="text-indent:2em;">首先要在MySQL的bigdata库建表:</p>
 
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bigdata.hadoop_process_log (</span><br><span class="line">	`node` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;节点&#x27;</span>,</span><br><span class="line">	`typeName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;进程类型&#x27;</span>,</span><br><span class="line">	`logtime` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span></span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 COMMENT<span class="operator">=</span><span class="string">&#x27;大数据hadoop进程重启记录表&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
