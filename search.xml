@@ -17,6 +17,62 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客从GitHub部署到Coding的最新方法</title>
+    <url>/2022/02/15/gitToCodding/</url>
+    <content><![CDATA[<p style="text-indent:2em;">hexo博客只部署在GitHub，是无法被百度爬到的，所以同步Coding便是不错的选择。但是，但是，网上的方法全部都已过时，原因如下：</p>
+<p style="text-indent:2em;">①coding变了，一些配置项没有了，生成的地址格式也有所不同。</p>
+<p style="text-indent:2em;">②git默认分支变了，按照网上的配置，每次提交会同步到master(在_config.yml里修改为main是无用的)。</p>
+<p style="text-indent:2em;">本人在部署时也一脸懵，耐心思考下终于成功了，方法如下：</p>
+<p">①创建项目<p></p>
+<p style="text-indent:2em;">git登录后，点创建</p>
+<img src="/2022/02/15/gitToCodding/1.jpg" class title="这是一个新的博客的图片的说明">
+<img src="/2022/02/15/gitToCodding/2.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">项目名称=标识=git用户名：(以前的启用ReadMe文件初始化项目等git选项没有了，直接完成创建！)</p>
+<img src="/2022/02/15/gitToCodding/3.jpg" class title="这是一个新的博客的图片的说明">
+<p>②创建代码仓库</p>
+<p style="text-indent:2em;">进入项目->代码仓库，创建代码仓库(不要关联)：</p>
+<img src="/2022/02/15/gitToCodding/4.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">创建完成!点进仓库，把地址复制出来：</p>
+<img src="/2022/02/15/gitToCodding/7.jpg" class title="这是一个新的博客的图片的说明">
+<img src="/2022/02/15/gitToCodding/8.jpg" class title="这是一个新的博客的图片的说明">
+<p>③coding加入博客配置</p>
+<p style="text-indent:2em;">打开博客根目录，修改_config.yml ：</p>
+<p style="text-indent:2em;">这里coding不使用ssh公钥，避免权限问题。分支记得改为main:</p>
+<img src="/2022/02/15/gitToCodding/9.jpg" class title="这是一个新的博客的图片的说明">
+
+<p>④coding项目初始化</p>
+<img src="/2022/02/15/gitToCodding/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">然后我们初始化coding项目的仓库：(导入外部仓库，添git项目地址,注意格式！！！)</p>
+<img src="/2022/02/15/gitToCodding/10.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">此时，git代码已经初始化到coding中了！</p>
+<img src="/2022/02/15/gitToCodding/11.jpg" class title="这是一个新的博客的图片的说明">
+<p>⑥改coding默认分支</p>
+<p style="text-indent:2em;">此时我们发现，分支有两个，我们要修改main为默认分支：</p>
+<img src="/2022/02/15/gitToCodding/12.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">点分支设置，保存。此时关于coding的配置已经全部完成了，静态网页等功能不需要也找不到了：</p>
+<img src="/2022/02/15/gitToCodding/13.jpg" class title="这是一个新的博客的图片的说明">
+<p>⑦改git默认分支</p>
+<p style="text-indent:2em;">这时，我们就可以通过hexo clean && hexo g && hexo d 来修改与部署了。但我发现，即使根目录_config.yml已配置分支为main，但coding上还是合并到了master分支。通过git日志也可以看到。</p>
+<img src="/2022/02/15/gitToCodding/14.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">我们需要让hexo d执行时，获取到main分支而不是master，找来找去没找到方法。最后找到\node_modules\hexo-deployer-git\lib\parse_config.js，暴力替换分支名称，问题解决！</p>
+<img src="/2022/02/15/gitToCodding/18.jpg" class title="这是一个新的博客的图片的说明">
+<p>⑧结果验证</p>
+<p style="text-indent:2em;">此时执行hexo clean && hexo g && hexo d，观察coding的main分支中的代码，是否有新加文件。若配置无修改，可以查看下分支的更新时间。</p>
+<img src="/2022/02/15/gitToCodding/16.jpg" class title="这是一个新的博客的图片的说明">
+<img src="/2022/02/15/gitToCodding/17.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">此时就大功告成了，如果远程网站没更新，可能是有延迟，耐心等待即可。(我没耐心，hexo d了多次，终于刷出来了，各位小伙伴不必慌)。</p>
+
+</p">]]></content>
+      <categories>
+        <category>搭建</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Coding</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何去除hexo底部强力驱动标记</title>
     <url>/2022/02/15/deleteHexoLogo/</url>
     <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
@@ -28,7 +84,6 @@
 <p>方法二：</p>
 <p style="text-indent:2em;">找到Blog\themes\next\layout\_partials下的footer.swig,定位51行,删除footer.powered url这行即可！</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> if theme.footer.powered <span class="operator">%</span>&#125;</span><br><span class="line">  <span class="operator">&lt;</span>div class<span class="operator">=</span>&quot;powered-by&quot;<span class="operator">&gt;</span></span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> if theme.scheme <span class="operator">!=</span><span class="operator">=</span> <span class="string">&#x27;Gemini&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">      &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://&#x27;</span> <span class="operator">+</span> theme.scheme <span class="operator">|</span> lower <span class="operator">+</span> <span class="string">&#x27;.theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br><span class="line">    将此行删除：&#123;&#123;<span class="operator">-</span> __(<span class="string">&#x27;footer.powered&#x27;</span>, next_url(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;) <span class="operator">+</span> <span class="string">&#x27; &amp; &#x27;</span> <span class="operator">+</span> next_url(next_site, <span class="string">&#x27;NexT.&#x27;</span> <span class="operator">+</span> theme.scheme, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;)) &#125;&#125;</span><br><span class="line">  <span class="operator">&lt;</span><span class="operator">/</span>div<span class="operator">&gt;</span></span><br><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br></pre></td></tr></table></figure>
-
     ]]></content>
       <categories>
         <category>trouble</category>
