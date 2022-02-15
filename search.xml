@@ -17,6 +17,27 @@
       </tags>
   </entry>
   <entry>
+    <title>如何去除hexo底部强力驱动标记</title>
+    <url>/2022/02/15/deleteHexoLogo/</url>
+    <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
+
+<p>方法一：</p>
+<p style="text-indent:2em;">找到/Blog/themes/next/_config.yml，设置powered为false即可！</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># Powered <span class="keyword">by</span> Hexo <span class="operator">&amp;</span> NexT</span><br><span class="line">powered: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>方法二：</p>
+<p style="text-indent:2em;">找到Blog\themes\next\layout\_partials下的footer.swig,定位51行,删除footer.powered url这行即可！</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> if theme.footer.powered <span class="operator">%</span>&#125;</span><br><span class="line">  <span class="operator">&lt;</span>div class<span class="operator">=</span>&quot;powered-by&quot;<span class="operator">&gt;</span></span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> if theme.scheme <span class="operator">!=</span><span class="operator">=</span> <span class="string">&#x27;Gemini&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">      &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://&#x27;</span> <span class="operator">+</span> theme.scheme <span class="operator">|</span> lower <span class="operator">+</span> <span class="string">&#x27;.theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br><span class="line">    将此行删除：&#123;&#123;<span class="operator">-</span> __(<span class="string">&#x27;footer.powered&#x27;</span>, next_url(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;) <span class="operator">+</span> <span class="string">&#x27; &amp; &#x27;</span> <span class="operator">+</span> next_url(next_site, <span class="string">&#x27;NexT.&#x27;</span> <span class="operator">+</span> theme.scheme, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;)) &#125;&#125;</span><br><span class="line">  <span class="operator">&lt;</span><span class="operator">/</span>div<span class="operator">&gt;</span></span><br><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br></pre></td></tr></table></figure>
+    ]]></content>
+      <categories>
+        <category>trouble</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客从GitHub部署到Coding的最新方法</title>
     <url>/2022/02/15/gitToCodding/</url>
     <content><![CDATA[<p style="text-indent:2em;">hexo博客只部署在GitHub，是无法被百度爬到的，所以同步Coding便是不错的选择。但是，但是，网上的方法全部都已过时，原因如下：</p>
@@ -70,27 +91,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Coding</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何去除hexo底部强力驱动标记</title>
-    <url>/2022/02/15/deleteHexoLogo/</url>
-    <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
-
-<p>方法一：</p>
-<p style="text-indent:2em;">找到/Blog/themes/next/_config.yml，设置powered为false即可！</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># Powered <span class="keyword">by</span> Hexo <span class="operator">&amp;</span> NexT</span><br><span class="line">powered: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>方法二：</p>
-<p style="text-indent:2em;">找到Blog\themes\next\layout\_partials下的footer.swig,定位51行,删除footer.powered url这行即可！</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> if theme.footer.powered <span class="operator">%</span>&#125;</span><br><span class="line">  <span class="operator">&lt;</span>div class<span class="operator">=</span>&quot;powered-by&quot;<span class="operator">&gt;</span></span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> if theme.scheme <span class="operator">!=</span><span class="operator">=</span> <span class="string">&#x27;Gemini&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">      &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://&#x27;</span> <span class="operator">+</span> theme.scheme <span class="operator">|</span> lower <span class="operator">+</span> <span class="string">&#x27;.theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br><span class="line">    将此行删除：&#123;&#123;<span class="operator">-</span> __(<span class="string">&#x27;footer.powered&#x27;</span>, next_url(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;) <span class="operator">+</span> <span class="string">&#x27; &amp; &#x27;</span> <span class="operator">+</span> next_url(next_site, <span class="string">&#x27;NexT.&#x27;</span> <span class="operator">+</span> theme.scheme, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;)) &#125;&#125;</span><br><span class="line">  <span class="operator">&lt;</span><span class="operator">/</span>div<span class="operator">&gt;</span></span><br><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br></pre></td></tr></table></figure>
-    ]]></content>
-      <categories>
-        <category>trouble</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
