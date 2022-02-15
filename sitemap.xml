@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://hst15701102464.github.io/2022/02/15/MysqlGroupConcatWasCutError/</loc>
+    
+    <lastmod>2022-02-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/2022/02/09/hadoopRoot/</loc>
     
     <lastmod>2022-02-14</lastmod>
@@ -106,7 +115,7 @@
 
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/Hexo/</loc>
+    <loc>https://hst15701102464.github.io/categories/trouble/</loc>
     <lastmod>2022-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -120,7 +129,14 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/Hexo/trouble/</loc>
+    <loc>https://hst15701102464.github.io/categories/trouble/MySQL/</loc>
+    <lastmod>2022-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/categories/trouble/Hexo/</loc>
     <lastmod>2022-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
