@@ -138,7 +138,14 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/trouble/MySQL/</loc>
+    <loc>https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2022-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2022-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -152,14 +159,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2022-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://hst15701102464.github.io/categories/trouble/MySQL/</loc>
     <lastmod>2022-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
