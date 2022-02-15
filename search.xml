@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何去除hexo底部强力驱动标记</title>
+    <url>/2022/02/15/deleteHexoLogo/</url>
+    <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
+<p style="text-indent:2em;">找到Blog\themes\next\layout\_partials下的footer.swig,定位51行,删除footer.powered url这行即可！</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> if theme.footer.powered <span class="operator">%</span>&#125;</span><br><span class="line">  <span class="operator">&lt;</span>div class<span class="operator">=</span>&quot;powered-by&quot;<span class="operator">&gt;</span></span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> if theme.scheme <span class="operator">!=</span><span class="operator">=</span> <span class="string">&#x27;Gemini&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">      &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://&#x27;</span> <span class="operator">+</span> theme.scheme <span class="operator">|</span> lower <span class="operator">+</span> <span class="string">&#x27;.theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;&#123;<span class="operator">-</span> __(<span class="string">&#x27;footer.powered&#x27;</span>, next_url(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;) <span class="operator">+</span> <span class="string">&#x27; &amp; &#x27;</span> <span class="operator">+</span> next_url(next_site, <span class="string">&#x27;NexT.&#x27;</span> <span class="operator">+</span> theme.scheme, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;)) &#125;&#125;</span><br><span class="line">  <span class="operator">&lt;</span><span class="operator">/</span>div<span class="operator">&gt;</span></span><br><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>trouble</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hadoop进程异常检测重启</title>
     <url>/2022/02/09/hadoopRoot/</url>
     <content><![CDATA[<p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。</p>
@@ -21,23 +38,6 @@
       <tags>
         <tag>大数据</tag>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何去除hexo底部强力驱动标记</title>
-    <url>/2022/02/15/deleteHexoLogo/</url>
-    <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
-<p style="text-indent:2em;">找到Blog\themes\next\layout\_partials下的footer.swig,定位51行,删除footer.powered url这行即可！</p>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> if theme.footer.powered <span class="operator">%</span>&#125;</span><br><span class="line">  <span class="operator">&lt;</span>div class<span class="operator">=</span>&quot;powered-by&quot;<span class="operator">&gt;</span></span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> if theme.scheme <span class="operator">!=</span><span class="operator">=</span> <span class="string">&#x27;Gemini&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">      &#123;<span class="operator">%</span><span class="operator">-</span> <span class="keyword">set</span> next_site <span class="operator">=</span> <span class="string">&#x27;https://&#x27;</span> <span class="operator">+</span> theme.scheme <span class="operator">|</span> lower <span class="operator">+</span> <span class="string">&#x27;.theme-next.org&#x27;</span> <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br><span class="line">    &#123;&#123;<span class="operator">-</span> __(<span class="string">&#x27;footer.powered&#x27;</span>, next_url(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;) <span class="operator">+</span> <span class="string">&#x27; &amp; &#x27;</span> <span class="operator">+</span> next_url(next_site, <span class="string">&#x27;NexT.&#x27;</span> <span class="operator">+</span> theme.scheme, &#123;class: <span class="string">&#x27;theme-link&#x27;</span>&#125;)) &#125;&#125;</span><br><span class="line">  <span class="operator">&lt;</span><span class="operator">/</span>div<span class="operator">&gt;</span></span><br><span class="line">&#123;<span class="operator">%</span><span class="operator">-</span> endif <span class="operator">%</span>&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>trouble</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
