@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
-    <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
-    <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
-<p style="text-indent:2em;">我们可以到存储过程中,添加：</p>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置会话级别的GROUP_CONCAT最大长度</span><br><span class="line"><span class="keyword">SET</span> group_concat_max_len<span class="operator">=</span><span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">再次执行,发现不报错了。经尝试,网上通过 SET GLOBAL group_concat_max_len=102400 来设置全局变量,不能解决报错问题!</p>]]></content>
-      <categories>
-        <category>trouble</category>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何去除hexo底部强力驱动标记</title>
     <url>/2022/02/15/deleteHexoLogo/</url>
     <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
@@ -117,6 +101,22 @@
       </tags>
   </entry>
   <entry>
+    <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
+    <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
+    <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
+<p style="text-indent:2em;">我们可以到存储过程中,添加：</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置会话级别的GROUP_CONCAT最大长度</span><br><span class="line"><span class="keyword">SET</span> group_concat_max_len<span class="operator">=</span><span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">再次执行,发现不报错了。经尝试,网上通过 SET GLOBAL group_concat_max_len=102400 来设置全局变量,不能解决报错问题!</p>]]></content>
+      <categories>
+        <category>trouble</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hadoop单节点磁盘突然占满怎么处理</title>
     <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
@@ -152,6 +152,31 @@
       <tags>
         <tag>大数据</tag>
         <tag>hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+Next为首页文章添加边框阴影[绝对有效]</title>
+    <url>/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/</url>
+    <content><![CDATA[<p style="text-indent:2em;">别人的博客首页文章有边框和阴影,效果不错,毕竟不加边框看着太low了。但是网上的方法都没效果,自己也不熟悉hexo,真让人头疼！</p>
+<p style="text-indent:2em;">突发异想，会不会是大佬们在写博客时，故意挖个坑呢？</p>
+<p style="text-indent:2em;">我比较信任的方法是这样的：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">找到Blog\themes\next\source\css\_common\components\post\post.styl，定位<span class="string">&#x27;motion.transition.post_block&#x27;</span></span><br><span class="line">将</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block, .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">替换为：</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">但是亲测无效，最后盯了半天，发现个bug:</p>
+<img src="/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">what?这个点是干嘛的？我再菜也别蒙我啊！</p>
+<p style="text-indent:2em;">最后去掉点,替换为：
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">5</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">5</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</p><p style="text-indent:2em;">完美解决！事实证明,细心永远最重要！不知道网上无脑复制粘贴别人文章的博主，不觉得惭愧吗？！！！</p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
