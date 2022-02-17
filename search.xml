@@ -6,7 +6,10 @@
     <content><![CDATA[<p style="text-indent:2em;">夜深了,话不多说,直接摆方案：</p>
 <p style="text-indent:2em;">找到Blog\themes\next\source\css\_schemes\Mist\_posts-expand.styl,定位.post-block:not(:first-child)</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> .post<span class="operator">-</span>block:<span class="keyword">not</span>(:<span class="keyword">first</span><span class="operator">-</span>child) &#123;</span><br><span class="line">   margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>]]></content>
+<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>
+<p style="text-indent:2em;">如果按网上设置了文章阴影效果,记得修改一下Blog\themes\next\source\css\_common\components\post\post.styl配置,把文章顶部距离调为0,这样首页才是想要的效果！</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">完事儿,大功告成！觉得有用就留个言吧！</p> ]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -131,30 +134,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo+Next为首页文章添加边框阴影[绝对有效]</title>
-    <url>/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/</url>
-    <content><![CDATA[<p style="text-indent:2em;">别人的博客首页文章有边框和阴影,效果不错,毕竟不加边框看着太low了。但是网上的方法都没效果,自己也不熟悉hexo,真让人头疼！</p>
-<p style="text-indent:2em;">突发异想，会不会是大佬们在写博客时，故意挖个坑呢？</p>
-<p style="text-indent:2em;">我比较信任的方法是这样的：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">找到Blog\themes\next\source\css\_common\components\post\post.styl，定位<span class="string">&#x27;motion.transition.post_block&#x27;</span></span><br><span class="line">将</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block, .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">替换为：</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">但是亲测无效，最后盯了半天，发现个bug:</p>
-<img src="/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/1.jpg" class title="这是一个新的博客的图片的说明">
-<p style="text-indent:2em;">what?这个点是干嘛的？我再菜也别蒙我啊！最后一个参数指的透明度, 1为100% 不透明,0为完全透明,此处我们改为1</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>); <span class="operator">/</span><span class="operator">/</span>我喜欢的象牙黑,白背景效果更佳！</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">完美解决！事实证明,细心永远最重要！不知道网上无脑复制粘贴别人文章的博主，不觉得惭愧吗？！！！</p>
-
-
-
-
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hadoop单节点磁盘突然占满怎么处理</title>
     <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
@@ -190,6 +169,30 @@
       <tags>
         <tag>大数据</tag>
         <tag>hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+Next为首页文章添加边框阴影[绝对有效]</title>
+    <url>/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/</url>
+    <content><![CDATA[<p style="text-indent:2em;">别人的博客首页文章有边框和阴影,效果不错,毕竟不加边框看着太low了。但是网上的方法都没效果,自己也不熟悉hexo,真让人头疼！</p>
+<p style="text-indent:2em;">突发异想，会不会是大佬们在写博客时，故意挖个坑呢？</p>
+<p style="text-indent:2em;">我比较信任的方法是这样的：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">找到Blog\themes\next\source\css\_common\components\post\post.styl，定位<span class="string">&#x27;motion.transition.post_block&#x27;</span></span><br><span class="line">将</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block, .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">替换为：</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">但是亲测无效，最后盯了半天，发现个bug:</p>
+<img src="/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">what?这个点是干嘛的？我再菜也别蒙我啊！最后一个参数指的透明度, 1为100% 不透明,0为完全透明,此处我们改为1</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>); <span class="operator">/</span><span class="operator">/</span>我喜欢的象牙黑,白背景效果更佳！</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">完美解决！事实证明,细心永远最重要！不知道网上无脑复制粘贴别人文章的博主，不觉得惭愧吗？！！！</p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
