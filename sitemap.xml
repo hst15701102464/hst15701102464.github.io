@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hst15701102464.github.io/2022/02/17/%E8%AF%BB%E3%80%8A%E4%B8%89%E4%BD%93I%E3%80%8B%E6%9C%89%E6%84%9F/</loc>
+    
+    <lastmod>2022-02-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</loc>
     
     <lastmod>2022-02-17</lastmod>
@@ -144,6 +153,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://hst15701102464.github.io/tags/%E6%96%87%E5%AD%A6/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/tags/%E4%B8%89%E4%BD%93/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -168,7 +198,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/trouble/Hexo/</loc>
+    <loc>https://hst15701102464.github.io/categories/trouble/MySQL/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -182,7 +212,14 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/trouble/MySQL/</loc>
+    <loc>https://hst15701102464.github.io/categories/%E6%96%87%E5%AD%A6/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/categories/trouble/Hexo/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -197,6 +234,13 @@
   
   <url>
     <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/categories/%E6%96%87%E5%AD%A6/%E5%8E%9F%E5%88%9B/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

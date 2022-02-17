@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
+    <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
+    <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
+<p style="text-indent:2em;">我们可以到存储过程中,添加：</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置会话级别的GROUP_CONCAT最大长度</span><br><span class="line"><span class="keyword">SET</span> group_concat_max_len<span class="operator">=</span><span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">再次执行,发现不报错了。经尝试,网上通过 SET GLOBAL group_concat_max_len=102400 来设置全局变量,不能解决报错问题!</p>]]></content>
+      <categories>
+        <category>trouble</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何去除hexo底部强力驱动标记</title>
     <url>/2022/02/15/deleteHexoLogo/</url>
     <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
@@ -16,22 +32,6 @@
       <categories>
         <category>trouble</category>
         <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
-    <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
-    <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
-<p style="text-indent:2em;">我们可以到存储过程中,添加：</p>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置会话级别的GROUP_CONCAT最大长度</span><br><span class="line"><span class="keyword">SET</span> group_concat_max_len<span class="operator">=</span><span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">再次执行,发现不报错了。经尝试,网上通过 SET GLOBAL group_concat_max_len=102400 来设置全局变量,不能解决报错问题!</p>]]></content>
-      <categories>
-        <category>trouble</category>
-        <category>MySQL</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -152,6 +152,28 @@
       <tags>
         <tag>大数据</tag>
         <tag>hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读《三体I》有感</title>
+    <url>/2022/02/17/%E8%AF%BB%E3%80%8A%E4%B8%89%E4%BD%93I%E3%80%8B%E6%9C%89%E6%84%9F/</url>
+    <content><![CDATA[<p style="text-indent:2em;">在叶文洁接收到木星高频电波的那个夜晚，一切形如往常，雷达峰寂静地熟睡在大兴安岭的襁褓中。此时太阳正在南半球散发着光与热，殊不知，整个星系即将结束它的田园时代。</p>
+<p style="text-indent:2em;">从红卫兵的四条皮鞭，到物理学家血淋淋的尸体，到那个送她《寂静的春天》之人的背叛，再到她拒绝签字认罪，她都沉默接受了。然而这次，面对宇宙文明发来的“不要回复”，她应该继续沉默吗?</p>
+<p style="text-indent:2em;">她站在雷达峰顶，凝望着远处齐家屯的灯火，仿佛凝望的是宇宙中陌生的星体。她从来信中甚至瞥到了一丝善意，这更加坚定了她的计划。</p>
+<p style="text-indent:2em;">4光年外的1379号监听站，监听员所担心的事还是发生了:到这里来吧!我们的文明已无力解决现有的问题……”善意的监听员听到了，而同时接收到的，还有宇宙中极力隐藏着自己的高等文明。不久后，智子封锁了地球科学，三体舰队航向地球……</p>
+<p style="text-indent:2em;">“你们是虫子”</p>
+<p style="text-indent:2em;">这一切都超出了叶文洁的预想，她站在雷达峰顶，看着西方的余晖:“这是人类的末日。”</p>
+<p style="text-indent:2em;">而人类真的有这么不堪吗?人类一直是顽强的，就像华北平原的蝗虫一样从未绝迹，努力活完短短的一生，把成果留给后代继承，如此循环往复，不断成长，真的很了不起。然而这些都将成为地球往事，450年后将不复存在……</p>
+<p style="text-indent:2em;">叶文洁乌托邦式的幻想固然没错，错就错在她不明白一个道理:如果乌托邦不存在，那现世即为乌托邦。</p>
+]]></content>
+      <categories>
+        <category>文学</category>
+        <category>原创</category>
+      </categories>
+      <tags>
+        <tag>文学</tag>
+        <tag>读后感</tag>
+        <tag>三体</tag>
       </tags>
   </entry>
 </search>
