@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
-    <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
-    <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
-<p style="text-indent:2em;">我们可以到存储过程中,添加：</p>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置会话级别的GROUP_CONCAT最大长度</span><br><span class="line"><span class="keyword">SET</span> group_concat_max_len<span class="operator">=</span><span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">再次执行,发现不报错了。经尝试,网上通过 SET GLOBAL group_concat_max_len=102400 来设置全局变量,不能解决报错问题!</p>]]></content>
-      <categories>
-        <category>trouble</category>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何去除hexo底部强力驱动标记</title>
     <url>/2022/02/15/deleteHexoLogo/</url>
     <content><![CDATA[<p style="text-indent:2em;">Hexo博客搭建好后,底部的"由 Hexo & NexT.Mist 强力驱动"的字样属实让人头疼。虽然我爱你,但把你名字纹在大腿大可不必！</p>
@@ -32,6 +16,22 @@
       <categories>
         <category>trouble</category>
         <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
+    <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
+    <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
+<p style="text-indent:2em;">我们可以到存储过程中,添加：</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置会话级别的GROUP_CONCAT最大长度</span><br><span class="line"><span class="keyword">SET</span> group_concat_max_len<span class="operator">=</span><span class="number">102400</span>;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">再次执行,发现不报错了。经尝试,网上通过 SET GLOBAL group_concat_max_len=102400 来设置全局变量,不能解决报错问题!</p>]]></content>
+      <categories>
+        <category>trouble</category>
+        <category>MySQL</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
