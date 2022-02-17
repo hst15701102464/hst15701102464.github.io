@@ -20,17 +20,21 @@
     var CONFIG = {"hostname":"hst15701102464.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="写代码多是一件美逝啊！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="呼松涛的个人博客">
-<meta property="og:url" content="https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/index.html">
+  <meta name="description" content="hadoop某节点突然磁盘占用率100%">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hadoop单节点磁盘突然占满怎么处理">
+<meta property="og:url" content="https://hst15701102464.github.io/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="呼松涛的个人博客">
-<meta property="og:description" content="写代码多是一件美逝啊！">
+<meta property="og:description" content="hadoop某节点突然磁盘占用率100%">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-17T08:50:10.000Z">
+<meta property="article:modified_time" content="2022-02-17T09:29:17.575Z">
 <meta property="article:author" content="呼松涛">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="hadoop">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/">
+<link rel="canonical" href="https://hst15701102464.github.io/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -38,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: 搭建 | 呼松涛的个人博客</title>
+  <title>hadoop单节点磁盘突然占满怎么处理 | 呼松涛的个人博客</title>
   
 
 
@@ -197,57 +201,157 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">搭建
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hst15701102464.github.io/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="呼松涛">
+      <meta itemprop="description" content="写代码多是一件美逝啊！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="呼松涛的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hadoop单节点磁盘突然占满怎么处理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-17 16:50:10 / 修改时间：17:29:17" itemprop="dateCreated datePublished" datetime="2022-02-17T16:50:10+08:00">2022-02-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/trouble/" itemprop="url" rel="index"><span itemprop="name">trouble</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/trouble/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">hadoop某节点突然磁盘占用率100%</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
+<p style="text-indent:2em;">那么可能存在一个异常进程，一直在写入磁盘没有被释放。查看已删除空间却没有释放的进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof|grep delete</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">观察这些异常进程。我的问题是Azkaban任务一直Running,进行手动kill导致。直接将进程kill掉：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof|grep delete|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
+<p style="text-indent:2em;">等待一分钟,若磁盘无明显改善,试试重启hdfs与yarn。当hadoop运行过久,也会出现无法stop与磁盘异常的情况。</p>
+
+<p style="text-indent:2em;">如果问题仍未解决,可能是hadoop外其他文件太大,找到df -h 100%所指向的路径,进入路径执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh * </span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">看看哪些文件过大，进行删除或转移即可。</p>
+<p style="text-indent:2em;">还有一种可能是hadoop分配不均衡，这种情况与网络带宽有关,需要进行重均衡：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置带宽：</span></span><br><span class="line">	hdfs dfsadmin -setBalancerBandwidth 20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#重平衡(调整磁盘使用率偏差值)：</span></span><br><span class="line">sh <span class="variable">$HADOOP_HOME</span>/bin/start-balancer.sh –t 10%</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">该命令为后台进程,不影响当前namenode与数据完整性的前提下,对数据进行重新分配,当节点间使用率差异在10%以内时,hadoop认为达到平衡。该任务一般设置夜间执行,可以设置每日晚间执行一次。</p>
+<p style="text-indent:2em;">如果此文章有用,就动动小手点个赞吧！</p>
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-15T13:18:03+08:00"
-              content="2022-02-15">
-          02-15
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="呼松涛 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="呼松涛 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/02/15/gitToCodding/" itemprop="url">
-            <span itemprop="name">Hexo博客从GitHub部署到Coding的最新方法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"># 大数据</a>
+              <a href="/tags/hadoop/" rel="tag"># hadoop</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/15/gitToCodding/" rel="prev" title="Hexo博客从GitHub部署到Coding的最新方法">
+      <i class="fa fa-chevron-left"></i> Hexo博客从GitHub部署到Coding的最新方法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NTQzMC8zMTg5Nw=="></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -550,6 +654,21 @@ $(document).ready(function() {
     })
   </script>
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
   
 
