@@ -38,44 +38,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hadoop单节点磁盘突然占满怎么处理</title>
-    <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
-<p style="text-indent:2em;">那么可能存在一个异常进程，一直在写入磁盘没有被释放。查看已删除空间却没有释放的进程：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">观察这些异常进程。我的问题是Azkaban任务一直Running,进行手动kill导致。直接将进程kill掉：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
-
-<p style="text-indent:2em;">等待一分钟,若磁盘无明显改善,试试重启hdfs与yarn。当hadoop运行过久,也会出现无法stop与磁盘异常的情况。</p>
-
-<p style="text-indent:2em;">如果问题仍未解决,可能是hadoop外其他文件太大,找到df -h 100%所指向的路径,进入路径执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh * </span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">看看哪些文件过大，进行删除或转移即可。</p>
-<p style="text-indent:2em;">还有一种可能是hadoop分配不均衡，这种情况与网络带宽有关,需要进行重均衡：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置带宽：</span></span><br><span class="line">	hdfs dfsadmin -setBalancerBandwidth 20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#重平衡(调整磁盘使用率偏差值)：</span></span><br><span class="line">sh <span class="variable">$HADOOP_HOME</span>/bin/start-balancer.sh –t 10%</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">该命令为后台进程,不影响当前namenode与数据完整性的前提下,对数据进行重新分配,当节点间使用率差异在10%以内时,hadoop认为达到平衡。该任务一般设置夜间执行,可以设置每日晚间执行一次。</p>
-<p style="text-indent:2em;">如果此文章有用,就动动小手点个赞吧！</p>
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>trouble</category>
-        <category>Hadoop</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>hadoop</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客从GitHub部署到Coding的最新方法</title>
     <url>/2022/02/15/gitToCodding/</url>
     <content><![CDATA[<p style="text-indent:2em;">hexo博客只部署在GitHub，是无法被百度爬到的，所以同步Coding便是不错的选择。但是，但是，网上的方法全部都已过时，原因如下：</p>
@@ -152,6 +114,44 @@
       <tags>
         <tag>大数据</tag>
         <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hadoop单节点磁盘突然占满怎么处理</title>
+    <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
+<p style="text-indent:2em;">那么可能存在一个异常进程，一直在写入磁盘没有被释放。查看已删除空间却没有释放的进程：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">观察这些异常进程。我的问题是Azkaban任务一直Running,进行手动kill导致。直接将进程kill掉：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
+<p style="text-indent:2em;">等待一分钟,若磁盘无明显改善,试试重启hdfs与yarn。当hadoop运行过久,也会出现无法stop与磁盘异常的情况。</p>
+
+<p style="text-indent:2em;">如果问题仍未解决,可能是hadoop外其他文件太大,找到df -h 100%所指向的路径,进入路径执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh * </span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">看看哪些文件过大，进行删除或转移即可。</p>
+<p style="text-indent:2em;">还有一种可能是hadoop分配不均衡，这种情况与网络带宽有关,需要进行重均衡：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置带宽：</span></span><br><span class="line">	hdfs dfsadmin -setBalancerBandwidth 20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#重平衡(调整磁盘使用率偏差值)：</span></span><br><span class="line">sh <span class="variable">$HADOOP_HOME</span>/bin/start-balancer.sh –t 10%</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">该命令为后台进程,不影响当前namenode与数据完整性的前提下,对数据进行重新分配,当节点间使用率差异在10%以内时,hadoop认为达到平衡。该任务一般设置夜间执行,可以设置每日晚间执行一次。</p>
+<p style="text-indent:2em;">如果此文章有用,就动动小手点个赞吧！</p>
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>trouble</category>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
       </tags>
   </entry>
   <entry>
