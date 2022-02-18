@@ -260,21 +260,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
-    <lastmod>2022-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hst15701102464.github.io/categories/trouble/Hexo/</loc>
-    <lastmod>2022-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/categories/%E6%96%87%E5%AD%A6/</loc>
     <lastmod>2022-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -289,6 +275,20 @@
   
   <url>
     <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop/</loc>
+    <lastmod>2022-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
+    <lastmod>2022-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/categories/%E6%96%87%E5%AD%A6/</loc>
     <lastmod>2022-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
