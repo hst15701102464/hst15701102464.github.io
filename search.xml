@@ -18,6 +18,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Hive表误删导致数据丢失的解决方案</title>
+    <url>/2022/03/04/Hive%E8%A1%A8%E8%AF%AF%E5%88%A0%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p style="text-indent:2em;">不小心把Hive表删了咋办？主管还有30秒到达战场？</p>
+<p style="text-indent:2em;">莫慌,Hive能用这么久,数据安全性还是很ok的。</p>
+<p style="text-indent:2em;">如果是外部表,那恭喜你,数据还在,重新建表,路径保持一致，然后执行以下命令恢复表的元数据：</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MSCK REPAIR <span class="keyword">TABLE</span> default.tbl;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">如果是内部表,去HDFS下找到回收站目录,找到删除的表,我的路径是：/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl</p>
+<p style="text-indent:2em;">进去目录,发现数据还在(默认保存3天),接下来复制到表路径下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">cp</span> \ </span><br><span class="line">/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl \     </span><br><span class="line">/user/hive/warehouse//default.db/tbl</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">select以下,发现数据已经恢复了,笑了半截主管来了！</p>]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Hive</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
     <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
     <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
