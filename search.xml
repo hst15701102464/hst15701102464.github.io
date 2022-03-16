@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo+Next调整首页文章间距[绝对有效]</title>
-    <url>/2022/02/17/Hexo-Next%E8%B0%83%E6%95%B4%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E9%97%B4%E8%B7%9D/</url>
-    <content><![CDATA[<p style="text-indent:2em;">夜深了,话不多说,直接摆方案：</p>
-<p style="text-indent:2em;">找到Blog\themes\next\source\css\_schemes\Mist\_posts-expand.styl,定位.post-block:not(:first-child)</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> .post<span class="operator">-</span>block:<span class="keyword">not</span>(:<span class="keyword">first</span><span class="operator">-</span>child) &#123;</span><br><span class="line">   margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>
-<p style="text-indent:2em;">如果按网上设置了文章阴影效果,记得修改一下Blog\themes\next\source\css\_common\components\post\post.styl配置,把文章顶部距离调为0,这样首页才是想要的效果！</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">完事儿,大功告成！觉得有用就留个言吧！</p> ]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hive表误删导致数据丢失的解决方案</title>
     <url>/2022/03/04/Hive%E8%A1%A8%E8%AF%AF%E5%88%A0%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p style="text-indent:2em;">不小心把Hive表删了咋办？主管还有30秒到达战场？</p>
@@ -97,6 +80,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo+Next调整首页文章间距[绝对有效]</title>
+    <url>/2022/02/17/Hexo-Next%E8%B0%83%E6%95%B4%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E9%97%B4%E8%B7%9D/</url>
+    <content><![CDATA[<p style="text-indent:2em;">夜深了,话不多说,直接摆方案：</p>
+<p style="text-indent:2em;">找到Blog\themes\next\source\css\_schemes\Mist\_posts-expand.styl,定位.post-block:not(:first-child)</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> .post<span class="operator">-</span>block:<span class="keyword">not</span>(:<span class="keyword">first</span><span class="operator">-</span>child) &#123;</span><br><span class="line">   margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>
+<p style="text-indent:2em;">如果按网上设置了文章阴影效果,记得修改一下Blog\themes\next\source\css\_common\components\post\post.styl配置,把文章顶部距离调为0,这样首页才是想要的效果！</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">完事儿,大功告成！觉得有用就留个言吧！</p> ]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客从GitHub部署到Coding的最新方法</title>
     <url>/2022/02/15/gitToCodding/</url>
     <content><![CDATA[<p style="text-indent:2em;">hexo博客只部署在GitHub，是无法被百度爬到的，所以同步Coding便是不错的选择。但是，但是，网上的方法全部都已过时，原因如下：</p>
@@ -153,44 +153,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hadoop单节点磁盘突然占满怎么处理</title>
-    <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
-<p style="text-indent:2em;">那么可能存在一个异常进程，一直在写入磁盘没有被释放。查看已删除空间却没有释放的进程：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">观察这些异常进程。我的问题是Azkaban任务一直Running,进行手动kill导致。直接将进程kill掉：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
-
-<p style="text-indent:2em;">等待一分钟,若磁盘无明显改善,试试重启hdfs与yarn。当hadoop运行过久,也会出现无法stop与磁盘异常的情况。</p>
-
-<p style="text-indent:2em;">如果问题仍未解决,可能是hadoop外其他文件太大,找到df -h 100%所指向的路径,进入路径执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh * </span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">看看哪些文件过大，进行删除或转移即可。</p>
-<p style="text-indent:2em;">还有一种可能是hadoop分配不均衡，这种情况与网络带宽有关,需要进行重均衡：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置带宽：</span></span><br><span class="line">	hdfs dfsadmin -setBalancerBandwidth 20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#重平衡(调整磁盘使用率偏差值)：</span></span><br><span class="line">sh <span class="variable">$HADOOP_HOME</span>/bin/start-balancer.sh –t 10%</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">该命令为后台进程,不影响当前namenode与数据完整性的前提下,对数据进行重新分配,当节点间使用率差异在10%以内时,hadoop认为达到平衡。该任务一般设置夜间执行,可以设置每日晚间执行一次。</p>
-<p style="text-indent:2em;">如果此文章有用,就动动小手点个赞吧！</p>
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>trouble</category>
-        <category>Hadoop</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>hadoop</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hadoop进程异常检测重启</title>
     <url>/2022/02/09/hadoopRoot/</url>
     <content><![CDATA[<p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。</p>
@@ -238,6 +200,67 @@
       </tags>
   </entry>
   <entry>
+    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
+    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
+<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
+
+<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
+      <categories>
+        <category>Navicat</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>Navicat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hadoop单节点磁盘突然占满怎么处理</title>
+    <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
+<p style="text-indent:2em;">那么可能存在一个异常进程，一直在写入磁盘没有被释放。查看已删除空间却没有释放的进程：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">观察这些异常进程。我的问题是Azkaban任务一直Running,进行手动kill导致。直接将进程kill掉：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
+<p style="text-indent:2em;">等待一分钟,若磁盘无明显改善,试试重启hdfs与yarn。当hadoop运行过久,也会出现无法stop与磁盘异常的情况。</p>
+
+<p style="text-indent:2em;">如果问题仍未解决,可能是hadoop外其他文件太大,找到df -h 100%所指向的路径,进入路径执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh * </span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">看看哪些文件过大，进行删除或转移即可。</p>
+<p style="text-indent:2em;">还有一种可能是hadoop分配不均衡，这种情况与网络带宽有关,需要进行重均衡：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置带宽：</span></span><br><span class="line">	hdfs dfsadmin -setBalancerBandwidth 20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#重平衡(调整磁盘使用率偏差值)：</span></span><br><span class="line">sh <span class="variable">$HADOOP_HOME</span>/bin/start-balancer.sh –t 10%</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">该命令为后台进程,不影响当前namenode与数据完整性的前提下,对数据进行重新分配,当节点间使用率差异在10%以内时,hadoop认为达到平衡。该任务一般设置夜间执行,可以设置每日晚间执行一次。</p>
+<p style="text-indent:2em;">如果此文章有用,就动动小手点个赞吧！</p>
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>trouble</category>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sqoop使用笔记</title>
     <url>/2021/02/09/sqoopNote/</url>
     <content><![CDATA[<p>此文章记录个人使用sqoop遇到的问题及方法<br>(一)基础参数</p>
@@ -261,29 +284,6 @@
       <tags>
         <tag>大数据</tag>
         <tag>sqoop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
-    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
-<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
-<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
-
-<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
-      <categories>
-        <category>Navicat</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>Navicat</tag>
       </tags>
   </entry>
   <entry>
