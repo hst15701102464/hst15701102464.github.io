@@ -182,13 +182,6 @@
 
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/Hexo/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hst15701102464.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -197,6 +190,13 @@
   
   <url>
     <loc>https://hst15701102464.github.io/tags/Azkaban/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/tags/Hexo/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -217,14 +217,14 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/shell/</loc>
+    <loc>https://hst15701102464.github.io/tags/hadoop/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/hadoop/</loc>
+    <loc>https://hst15701102464.github.io/tags/shell/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -275,14 +275,14 @@
 
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/Hexo/</loc>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://hst15701102464.github.io/categories/Hexo/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -296,14 +296,14 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Azkaban/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Azkaban/</loc>
+    <loc>https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
