@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo+Next调整首页文章间距[绝对有效]</title>
+    <url>/2022/02/17/Hexo-Next%E8%B0%83%E6%95%B4%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E9%97%B4%E8%B7%9D/</url>
+    <content><![CDATA[<p style="text-indent:2em;">夜深了,话不多说,直接摆方案：</p>
+<p style="text-indent:2em;">找到Blog\themes\next\source\css\_schemes\Mist\_posts-expand.styl,定位.post-block:not(:first-child)</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> .post<span class="operator">-</span>block:<span class="keyword">not</span>(:<span class="keyword">first</span><span class="operator">-</span>child) &#123;</span><br><span class="line">   margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>
+<p style="text-indent:2em;">如果按网上设置了文章阴影效果,记得修改一下Blog\themes\next\source\css\_common\components\post\post.styl配置,把文章顶部距离调为0,这样首页才是想要的效果！</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">完事儿,大功告成！觉得有用就留个言吧！</p> ]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Azkaban常见错误与解决方法</title>
     <url>/2022/02/09/AzkabanError/</url>
     <content><![CDATA[<p>Azkaban 常见错误<br>1.创建project时ERROR: Insert projecttest for existing project failed.<br>创建project时报ERROR: Insert projecttest for existing project failed.错误，需要检查项目名称和描述中是否有中文。</p>
@@ -19,23 +36,6 @@
       <tags>
         <tag>大数据</tag>
         <tag>Azkaban</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo+Next调整首页文章间距[绝对有效]</title>
-    <url>/2022/02/17/Hexo-Next%E8%B0%83%E6%95%B4%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E9%97%B4%E8%B7%9D/</url>
-    <content><![CDATA[<p style="text-indent:2em;">夜深了,话不多说,直接摆方案：</p>
-<p style="text-indent:2em;">找到Blog\themes\next\source\css\_schemes\Mist\_posts-expand.styl,定位.post-block:not(:first-child)</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> .post<span class="operator">-</span>block:<span class="keyword">not</span>(:<span class="keyword">first</span><span class="operator">-</span>child) &#123;</span><br><span class="line">   margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>
-<p style="text-indent:2em;">如果按网上设置了文章阴影效果,记得修改一下Blog\themes\next\source\css\_common\components\post\post.styl配置,把文章顶部距离调为0,这样首页才是想要的效果！</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">完事儿,大功告成！觉得有用就留个言吧！</p> ]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -97,94 +97,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo+Next为首页文章添加边框阴影[绝对有效]</title>
-    <url>/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/</url>
-    <content><![CDATA[<p style="text-indent:2em;">别人的博客首页文章有边框和阴影,效果不错,毕竟不加边框看着太low了。但是网上的方法都没效果,自己也不熟悉hexo,真让人头疼！</p>
-<p style="text-indent:2em;">突发异想，会不会是大佬们在写博客时，故意挖个坑呢？</p>
-<p style="text-indent:2em;">我比较信任的方法是这样的：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">找到Blog\themes\next\source\css\_common\components\post\post.styl，定位<span class="string">&#x27;motion.transition.post_block&#x27;</span></span><br><span class="line">将</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block, .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">替换为：</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">但是亲测无效，最后盯了半天，发现个bug:</p>
-<img src="/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/1.jpg" class title="这是一个新的博客的图片的说明">
-<p style="text-indent:2em;">what?这个点是干嘛的？我再菜也别蒙我啊！最后一个参数指的透明度, 1为100% 不透明,0为完全透明,此处我们改为1</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>); <span class="operator">/</span><span class="operator">/</span>我喜欢的象牙黑,白背景效果更佳！</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">完美解决！事实证明,细心永远最重要！不知道网上无脑复制粘贴别人文章的博主，不觉得惭愧吗？！！！</p>
-
-
-
-
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hadoop单节点磁盘突然占满怎么处理</title>
-    <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
-<p style="text-indent:2em;">那么可能存在一个异常进程，一直在写入磁盘没有被释放。查看已删除空间却没有释放的进程：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">观察这些异常进程。我的问题是Azkaban任务一直Running,进行手动kill导致。直接将进程kill掉：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
-
-<p style="text-indent:2em;">等待一分钟,若磁盘无明显改善,试试重启hdfs与yarn。当hadoop运行过久,也会出现无法stop与磁盘异常的情况。</p>
-
-<p style="text-indent:2em;">如果问题仍未解决,可能是hadoop外其他文件太大,找到df -h 100%所指向的路径,进入路径执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh * </span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">看看哪些文件过大，进行删除或转移即可。</p>
-<p style="text-indent:2em;">还有一种可能是hadoop分配不均衡，这种情况与网络带宽有关,需要进行重均衡：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置带宽：</span></span><br><span class="line">	hdfs dfsadmin -setBalancerBandwidth 20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#重平衡(调整磁盘使用率偏差值)：</span></span><br><span class="line">sh <span class="variable">$HADOOP_HOME</span>/bin/start-balancer.sh –t 10%</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">该命令为后台进程,不影响当前namenode与数据完整性的前提下,对数据进行重新分配,当节点间使用率差异在10%以内时,hadoop认为达到平衡。该任务一般设置夜间执行,可以设置每日晚间执行一次。</p>
-<p style="text-indent:2em;">如果此文章有用,就动动小手点个赞吧！</p>
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>trouble</category>
-        <category>Hadoop</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>hadoop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sqoop使用笔记</title>
-    <url>/2021/02/09/sqoopNote/</url>
-    <content><![CDATA[<p>此文章记录个人使用sqoop遇到的问题及方法<br>(一)基础参数</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">①公共参数</span><br><span class="line">--connect 			指定MySQL的Url.</span><br><span class="line">--username 			指定MySQL用户名数据库密码</span><br><span class="line">--password 			指定MySQL数据库密码</span><br><span class="line">--num-mappers 			指定map的个数</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> 	导入时保证NULL值一致性</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> 		导入时保证NULL值一致性</span><br><span class="line">--input-null-string <span class="string">&#x27;\\N&#x27;</span> 	导出时保证NULL值一致性</span><br><span class="line">--input-null-non-string <span class="string">&#x27;\\N&#x27;</span>   导出时保证NULL值一致性</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">②MySQL导入HDFS的参数</span><br><span class="line">--table usertable		指定MySQL的表名</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;&quot;</span>           		指定MySQL表的过滤条件</span><br><span class="line">--query <span class="string">&#x27;and $CONDITIONS&#x27;</span>       指定MySQL表及过滤条件(不能和table一起用)</span><br><span class="line">--fields-terminated-by <span class="string">&#x27;&#x27;</span>       指定HDFS文件的字段分隔符</span><br><span class="line">--lines-terminated-by <span class="string">&#x27;&#x27;</span>	指定HDFS文件的换行符</span><br><span class="line">--delete-target-dir             若目标路径已存在即删除</span><br><span class="line">--split-by                      根据哪个字段来分片</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">③MySQL导入Hive表的参数</span><br><span class="line">--hive-import			设置导入目标为Hive表</span><br><span class="line">--table                         指定MySQL的表名</span><br><span class="line">--columns                       指定需筛选的字段</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;&quot;</span>           		指定MySQL表的过滤条件</span><br><span class="line">--hive-table         		指定目标Hive表</span><br><span class="line">--hive-partition-key            指定Hive分区字段</span><br><span class="line">--hive-partition-value          指定Hive某个分区</span><br><span class="line">--delete-target-dir             若目标路径已存在即删除</span><br><span class="line">--fields-terminated-by <span class="string">&#x27;&#x27;</span>       指定HDFS文件的字段分隔符</span><br><span class="line">--lines-terminated-by <span class="string">&#x27;&#x27;</span>	指定HDFS文件的换行符</span><br><span class="line">--hive-overwrite                覆盖模式</span><br><span class="line">--hive-drop-import-delims       把字符串中\n\r\01删除</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27;&#x27;</span>    用空格替换特殊字符</span><br><span class="line">--create-hive-table             建表，如果表已经存在，该操作会报错！</span><br><span class="line">--map-column-hive		为配置的列覆盖从SQL类型到Hive类型的默认映射(<span class="built_in">id</span> = int格式)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">备注：</span><br><span class="line">	1.Hive需要手动建表，字段类型必须相对应，否则会出现<span class="literal">true</span>或<span class="literal">false</span>的值，导致数据不一致。</span><br><span class="line">	2.query和table不能一起用，否则有冲突时无法确定源表。</span><br><span class="line">	3.map-column-hive参数需要指定列及对应的类型，不如手动建表或写脚本。</span><br><span class="line">	4.bit布尔型导入时，1=<span class="literal">true</span> ,2=<span class="literal">false</span></span><br><span class="line">	5.原表主键为文本格式时：sqoop import <span class="string">&quot;-Dorg.apache.sqoop.splitter.allow_text_splitter=true&quot;</span></span><br><span class="line">	6.hive不支持mysql的binary类型</span><br></pre></td></tr></table></figure>
-
-<p>(二)MySQL使用示例：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1.导入数据示例</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://aliyun5201314:3306/jianyeo2o \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table usertable \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--hive-import \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table rds_jianyeo2o.ods_usertable \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;createtime is not null&quot;</span> \</span><br><span class="line">--hive-drop-import-delims</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.导出数据示例</span></span><br><span class="line">sqoop <span class="built_in">export</span> </span><br><span class="line">--connect jdbc:mysql://520.13.14.9999:250/ads_we7 \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table ads_house_cust_first \</span><br><span class="line">--num-mappers 3 \</span><br><span class="line">--input-fields-terminated-by <span class="string">&#x27;\001&#x27;</span> \</span><br><span class="line">--export-dir /user/hive/warehouse/wxslb.db/ads_house_cust_first \</span><br><span class="line">--input-null-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--input-null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--staging-table ads_house_cust_first_tmp \</span><br><span class="line">--clear-staging-table</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.无需建表直接导入</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://520.13.14.9999:250/ods_o2oshop \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table iskyshop_goodscart \</span><br><span class="line">--num-mappers 50 \</span><br><span class="line">--hive-import \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table rds_iskyshop.ods_iskyshop_goodscart \</span><br><span class="line">--create-hive-table \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27; &#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#4.导入时指定时区(避免报错java.lang.IllegalArgumentException: HOUR_OF_DAY: 2 -&gt; 3)</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect <span class="string">&quot;jdbc:mysql://520.13.14.9999:250/love?tinyInt1isBit=false&amp;serverTimezone=Asia/Shanghai&quot;</span> \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table dwd_ann_log_appinfo \</span><br><span class="line">--hive-import \</span><br><span class="line">--num-mappers 40 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--create-hive-table \</span><br><span class="line">--hive-table LeleWeather.dwd_event_appinfo_history1 \</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;datekey &lt;= 20210601&quot;</span> \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">注：一定记得url加引号,否则&amp;无法正确解析,将报错-bash: --username: 未找到命令</span><br></pre></td></tr></table></figure>
-
-<p>(三)sqlServer使用示例：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#1.列出数据库</span></span><br><span class="line">sqoop list-databases --connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250&quot;</span> -username root -password <span class="string">&#x27;root&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2.列出库下所有表</span></span><br><span class="line">sqoop list-tables --connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250;DatabaseName=love&quot;</span> -username root -password <span class="string">&#x27;root&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.查询表数据</span></span><br><span class="line">sqoop <span class="built_in">eval</span> --connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250&quot;</span> -username root -password <span class="string">&#x27;root&#x27;</span> --query <span class="string">&quot;SELECT top 1 * from reportHouse.dbo.fact_userInfo&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#4.导入</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250;DatabaseName=love&quot;</span> \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--query <span class="string">&#x27;select top 2 * from reportHouse.dbo.fact_userInfo WHERE $CONDITIONS&#x27;</span> \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--hive-import \</span><br><span class="line">--target-dir /user/hive/warehouse/mht.db/ods/fact_userInfo_loadtest \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table mht.fact_userInfo_loadtest \</span><br><span class="line">--create-hive-table \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27; &#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>(四)函数封装sqoop脚本：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 定义一个函数，执行sqoop命令，所以执行脚本应该在sqoop/bin下面</span></span><br><span class="line"><span class="function"><span class="title">sq</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://520.13.14.9999:250/love \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table <span class="variable">$1</span> \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--hive-import \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-database yyplatform \</span><br><span class="line">--hive-table <span class="variable">$1</span></span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27; &#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sq iskyshop_activeinfo</span><br><span class="line">sq iskyshop_activeinfo_goods</span><br><span class="line">sq iskyshop_address</span><br><span class="line">sq iskyshop_area</span><br><span class="line">sq iskyshop_brand</span><br><span class="line">sq iskyshop_chosengoods</span><br><span class="line">sq iskyshop_choseninfo</span><br><span class="line">sq iskyshop_chosenuser</span><br></pre></td></tr></table></figure>
-
-<p>持续更新中……</p>
-]]></content>
-      <categories>
-        <category>大数据</category>
-        <category>sqoop</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>sqoop</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hadoop进程异常检测重启</title>
     <url>/2022/02/09/hadoopRoot/</url>
     <content><![CDATA[<p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。</p>
@@ -205,24 +117,6 @@
       <tags>
         <tag>大数据</tag>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>诗集《记忆的永恒》</title>
-    <url>/2022/04/15/%E8%AF%97%E9%9B%86%E3%80%8A%E8%AE%B0%E5%BF%86%E7%9A%84%E6%B0%B8%E6%81%92%E3%80%8B/</url>
-    <content><![CDATA[<br>
-
-<div class="pdfobject-container" data-target="记忆的永恒.pdf" data-height="500px"></div> 
-
-
-<br>
-]]></content>
-      <categories>
-        <category>文学</category>
-        <category>原创</category>
-      </categories>
-      <tags>
-        <tag>文学</tag>
       </tags>
   </entry>
   <entry>
@@ -282,6 +176,94 @@
       </tags>
   </entry>
   <entry>
+    <title>hadoop单节点磁盘突然占满怎么处理</title>
+    <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
+<p style="text-indent:2em;">那么可能存在一个异常进程，一直在写入磁盘没有被释放。查看已删除空间却没有释放的进程：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">观察这些异常进程。我的问题是Azkaban任务一直Running,进行手动kill导致。直接将进程kill掉：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof|grep delete|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
+<p style="text-indent:2em;">等待一分钟,若磁盘无明显改善,试试重启hdfs与yarn。当hadoop运行过久,也会出现无法stop与磁盘异常的情况。</p>
+
+<p style="text-indent:2em;">如果问题仍未解决,可能是hadoop外其他文件太大,找到df -h 100%所指向的路径,进入路径执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -sh * </span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">看看哪些文件过大，进行删除或转移即可。</p>
+<p style="text-indent:2em;">还有一种可能是hadoop分配不均衡，这种情况与网络带宽有关,需要进行重均衡：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置带宽：</span></span><br><span class="line">	hdfs dfsadmin -setBalancerBandwidth 20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#重平衡(调整磁盘使用率偏差值)：</span></span><br><span class="line">sh <span class="variable">$HADOOP_HOME</span>/bin/start-balancer.sh –t 10%</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">该命令为后台进程,不影响当前namenode与数据完整性的前提下,对数据进行重新分配,当节点间使用率差异在10%以内时,hadoop认为达到平衡。该任务一般设置夜间执行,可以设置每日晚间执行一次。</p>
+<p style="text-indent:2em;">如果此文章有用,就动动小手点个赞吧！</p>
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>trouble</category>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+Next为首页文章添加边框阴影[绝对有效]</title>
+    <url>/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/</url>
+    <content><![CDATA[<p style="text-indent:2em;">别人的博客首页文章有边框和阴影,效果不错,毕竟不加边框看着太low了。但是网上的方法都没效果,自己也不熟悉hexo,真让人头疼！</p>
+<p style="text-indent:2em;">突发异想，会不会是大佬们在写博客时，故意挖个坑呢？</p>
+<p style="text-indent:2em;">我比较信任的方法是这样的：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">找到Blog\themes\next\source\css\_common\components\post\post.styl，定位<span class="string">&#x27;motion.transition.post_block&#x27;</span></span><br><span class="line">将</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block, .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">替换为：</span><br><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">但是亲测无效，最后盯了半天，发现个bug:</p>
+<img src="/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">what?这个点是干嘛的？我再菜也别蒙我啊！最后一个参数指的透明度, 1为100% 不透明,0为完全透明,此处我们改为1</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">60</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">60</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>); <span class="operator">/</span><span class="operator">/</span>我喜欢的象牙黑,白背景效果更佳！</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">完美解决！事实证明,细心永远最重要！不知道网上无脑复制粘贴别人文章的博主，不觉得惭愧吗？！！！</p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sqoop使用笔记</title>
+    <url>/2021/02/09/sqoopNote/</url>
+    <content><![CDATA[<p>此文章记录个人使用sqoop遇到的问题及方法<br>(一)基础参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">①公共参数</span><br><span class="line">--connect 			指定MySQL的Url.</span><br><span class="line">--username 			指定MySQL用户名数据库密码</span><br><span class="line">--password 			指定MySQL数据库密码</span><br><span class="line">--num-mappers 			指定map的个数</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> 	导入时保证NULL值一致性</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> 		导入时保证NULL值一致性</span><br><span class="line">--input-null-string <span class="string">&#x27;\\N&#x27;</span> 	导出时保证NULL值一致性</span><br><span class="line">--input-null-non-string <span class="string">&#x27;\\N&#x27;</span>   导出时保证NULL值一致性</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">②MySQL导入HDFS的参数</span><br><span class="line">--table usertable		指定MySQL的表名</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;&quot;</span>           		指定MySQL表的过滤条件</span><br><span class="line">--query <span class="string">&#x27;and $CONDITIONS&#x27;</span>       指定MySQL表及过滤条件(不能和table一起用)</span><br><span class="line">--fields-terminated-by <span class="string">&#x27;&#x27;</span>       指定HDFS文件的字段分隔符</span><br><span class="line">--lines-terminated-by <span class="string">&#x27;&#x27;</span>	指定HDFS文件的换行符</span><br><span class="line">--delete-target-dir             若目标路径已存在即删除</span><br><span class="line">--split-by                      根据哪个字段来分片</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">③MySQL导入Hive表的参数</span><br><span class="line">--hive-import			设置导入目标为Hive表</span><br><span class="line">--table                         指定MySQL的表名</span><br><span class="line">--columns                       指定需筛选的字段</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;&quot;</span>           		指定MySQL表的过滤条件</span><br><span class="line">--hive-table         		指定目标Hive表</span><br><span class="line">--hive-partition-key            指定Hive分区字段</span><br><span class="line">--hive-partition-value          指定Hive某个分区</span><br><span class="line">--delete-target-dir             若目标路径已存在即删除</span><br><span class="line">--fields-terminated-by <span class="string">&#x27;&#x27;</span>       指定HDFS文件的字段分隔符</span><br><span class="line">--lines-terminated-by <span class="string">&#x27;&#x27;</span>	指定HDFS文件的换行符</span><br><span class="line">--hive-overwrite                覆盖模式</span><br><span class="line">--hive-drop-import-delims       把字符串中\n\r\01删除</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27;&#x27;</span>    用空格替换特殊字符</span><br><span class="line">--create-hive-table             建表，如果表已经存在，该操作会报错！</span><br><span class="line">--map-column-hive		为配置的列覆盖从SQL类型到Hive类型的默认映射(<span class="built_in">id</span> = int格式)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">备注：</span><br><span class="line">	1.Hive需要手动建表，字段类型必须相对应，否则会出现<span class="literal">true</span>或<span class="literal">false</span>的值，导致数据不一致。</span><br><span class="line">	2.query和table不能一起用，否则有冲突时无法确定源表。</span><br><span class="line">	3.map-column-hive参数需要指定列及对应的类型，不如手动建表或写脚本。</span><br><span class="line">	4.bit布尔型导入时，1=<span class="literal">true</span> ,2=<span class="literal">false</span></span><br><span class="line">	5.原表主键为文本格式时：sqoop import <span class="string">&quot;-Dorg.apache.sqoop.splitter.allow_text_splitter=true&quot;</span></span><br><span class="line">	6.hive不支持mysql的binary类型</span><br></pre></td></tr></table></figure>
+
+<p>(二)MySQL使用示例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1.导入数据示例</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://aliyun5201314:3306/jianyeo2o \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table usertable \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--hive-import \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table rds_jianyeo2o.ods_usertable \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;createtime is not null&quot;</span> \</span><br><span class="line">--hive-drop-import-delims</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.导出数据示例</span></span><br><span class="line">sqoop <span class="built_in">export</span> </span><br><span class="line">--connect jdbc:mysql://520.13.14.9999:250/ads_we7 \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table ads_house_cust_first \</span><br><span class="line">--num-mappers 3 \</span><br><span class="line">--input-fields-terminated-by <span class="string">&#x27;\001&#x27;</span> \</span><br><span class="line">--export-dir /user/hive/warehouse/wxslb.db/ads_house_cust_first \</span><br><span class="line">--input-null-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--input-null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--staging-table ads_house_cust_first_tmp \</span><br><span class="line">--clear-staging-table</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.无需建表直接导入</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://520.13.14.9999:250/ods_o2oshop \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table iskyshop_goodscart \</span><br><span class="line">--num-mappers 50 \</span><br><span class="line">--hive-import \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table rds_iskyshop.ods_iskyshop_goodscart \</span><br><span class="line">--create-hive-table \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27; &#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#4.导入时指定时区(避免报错java.lang.IllegalArgumentException: HOUR_OF_DAY: 2 -&gt; 3)</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect <span class="string">&quot;jdbc:mysql://520.13.14.9999:250/love?tinyInt1isBit=false&amp;serverTimezone=Asia/Shanghai&quot;</span> \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table dwd_ann_log_appinfo \</span><br><span class="line">--hive-import \</span><br><span class="line">--num-mappers 40 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--create-hive-table \</span><br><span class="line">--hive-table LeleWeather.dwd_event_appinfo_history1 \</span><br><span class="line">--<span class="built_in">where</span> <span class="string">&quot;datekey &lt;= 20210601&quot;</span> \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">注：一定记得url加引号,否则&amp;无法正确解析,将报错-bash: --username: 未找到命令</span><br></pre></td></tr></table></figure>
+
+<p>(三)sqlServer使用示例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#1.列出数据库</span></span><br><span class="line">sqoop list-databases --connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250&quot;</span> -username root -password <span class="string">&#x27;root&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2.列出库下所有表</span></span><br><span class="line">sqoop list-tables --connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250;DatabaseName=love&quot;</span> -username root -password <span class="string">&#x27;root&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.查询表数据</span></span><br><span class="line">sqoop <span class="built_in">eval</span> --connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250&quot;</span> -username root -password <span class="string">&#x27;root&#x27;</span> --query <span class="string">&quot;SELECT top 1 * from reportHouse.dbo.fact_userInfo&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#4.导入</span></span><br><span class="line">sqoop import \</span><br><span class="line">--connect <span class="string">&quot;jdbc:sqlserver://520.13.14.9999:250;DatabaseName=love&quot;</span> \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--query <span class="string">&#x27;select top 2 * from reportHouse.dbo.fact_userInfo WHERE $CONDITIONS&#x27;</span> \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--hive-import \</span><br><span class="line">--target-dir /user/hive/warehouse/mht.db/ods/fact_userInfo_loadtest \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table mht.fact_userInfo_loadtest \</span><br><span class="line">--create-hive-table \</span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27; &#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>(四)函数封装sqoop脚本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 定义一个函数，执行sqoop命令，所以执行脚本应该在sqoop/bin下面</span></span><br><span class="line"><span class="function"><span class="title">sq</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://520.13.14.9999:250/love \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--table <span class="variable">$1</span> \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--hive-import \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-database yyplatform \</span><br><span class="line">--hive-table <span class="variable">$1</span></span><br><span class="line">--null-string  <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--null-non-string <span class="string">&#x27;\\N&#x27;</span> \</span><br><span class="line">--hive-delims-replacement <span class="string">&#x27; &#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sq iskyshop_activeinfo</span><br><span class="line">sq iskyshop_activeinfo_goods</span><br><span class="line">sq iskyshop_address</span><br><span class="line">sq iskyshop_area</span><br><span class="line">sq iskyshop_brand</span><br><span class="line">sq iskyshop_chosengoods</span><br><span class="line">sq iskyshop_choseninfo</span><br><span class="line">sq iskyshop_chosenuser</span><br></pre></td></tr></table></figure>
+
+<p>持续更新中……</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>sqoop</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>sqoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows更新后Navicat连不上sqlserver的解决办法</title>
     <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
     <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
@@ -302,6 +284,25 @@
       <tags>
         <tag>工具</tag>
         <tag>Navicat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>诗集《记忆的永恒》</title>
+    <url>/2022/04/15/%E8%AF%97%E9%9B%86%E3%80%8A%E8%AE%B0%E5%BF%86%E7%9A%84%E6%B0%B8%E6%81%92%E3%80%8B/</url>
+    <content><![CDATA[<br>
+
+<p>如需下载请移步火狐浏览器</p>
+<div class="pdfobject-container" data-target="记忆的永恒.pdf" data-height="500px"></div> 
+
+
+<br>
+]]></content>
+      <categories>
+        <category>文学</category>
+        <category>原创</category>
+      </categories>
+      <tags>
+        <tag>文学</tag>
       </tags>
   </entry>
   <entry>
