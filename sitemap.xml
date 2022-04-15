@@ -217,13 +217,6 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/hadoop/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hst15701102464.github.io/tags/shell/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -231,7 +224,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/sqoop/</loc>
+    <loc>https://hst15701102464.github.io/tags/hadoop/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -246,6 +239,13 @@
   
   <url>
     <loc>https://hst15701102464.github.io/tags/Navicat/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/tags/sqoop/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -296,6 +296,13 @@
   </url>
   
   <url>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hive/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Azkaban/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -317,7 +324,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hive/</loc>
+    <loc>https://hst15701102464.github.io/categories/trouble/Hadoop/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -345,7 +352,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/trouble/Hadoop/</loc>
+    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -353,13 +360,6 @@
   
   <url>
     <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/sqoop/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
