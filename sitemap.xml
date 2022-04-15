@@ -238,6 +238,20 @@
   </url>
   
   <url>
+    <loc>https://hst15701102464.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/tags/Navicat/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/tags/%E6%96%87%E5%AD%A6/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -253,20 +267,6 @@
   
   <url>
     <loc>https://hst15701102464.github.io/tags/%E4%B8%89%E4%BD%93/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/tags/Navicat/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -324,6 +324,13 @@
   </url>
   
   <url>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/sqoop/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/categories/trouble/MySQL/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -352,7 +359,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/sqoop/</loc>
+    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -360,13 +367,6 @@
   
   <url>
     <loc>https://hst15701102464.github.io/categories/%E6%96%87%E5%AD%A6/</loc>
-    <lastmod>2022-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
     <lastmod>2022-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
