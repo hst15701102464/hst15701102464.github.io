@@ -238,29 +238,6 @@
       </tags>
   </entry>
   <entry>
-    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
-    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
-<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
-<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
-
-<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
-      <categories>
-        <category>Navicat</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>Navicat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>sqoop使用笔记</title>
     <url>/2021/02/09/sqoopNote/</url>
     <content><![CDATA[<p>此文章记录个人使用sqoop遇到的问题及方法<br>(一)基础参数</p>
@@ -291,7 +268,7 @@
     <url>/2022/04/15/%E8%AF%97%E9%9B%86%E3%80%8A%E8%AE%B0%E5%BF%86%E7%9A%84%E6%B0%B8%E6%81%92%E3%80%8B/</url>
     <content><![CDATA[<br>
 
-<div class="pdfobject-container" data-target="https://maifile.cn/pdf/a76614091868.pdf" data-height="500px"></div> 
+<div class="pdfobject-container" data-target="https://www.jianguoyun.com/p/DbY6A7sQ9pS9ChicirgEIAA" data-height="500px"></div> 
 
 <br>
 ]]></content>
@@ -301,6 +278,29 @@
       </categories>
       <tags>
         <tag>文学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
+    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
+<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
+
+<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
+      <categories>
+        <category>Navicat</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>Navicat</tag>
       </tags>
   </entry>
   <entry>
