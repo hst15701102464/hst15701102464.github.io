@@ -283,6 +283,13 @@
   </url>
   
   <url>
+    <loc>https://hst15701102464.github.io/tags/sqoop/</loc>
+    <lastmod>2022-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/tags/SqlServer/</loc>
     <lastmod>2022-04-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -298,13 +305,6 @@
   
   <url>
     <loc>https://hst15701102464.github.io/tags/Navicat/</loc>
-    <lastmod>2022-04-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/tags/sqoop/</loc>
     <lastmod>2022-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -397,13 +397,6 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/Hexo/</loc>
-    <lastmod>2022-04-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hst15701102464.github.io/categories/trouble/Hexo/</loc>
     <lastmod>2022-04-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -411,7 +404,21 @@
   </url>
   
   <url>
+    <loc>https://hst15701102464.github.io/categories/%E6%90%AD%E5%BB%BA/Hexo/</loc>
+    <lastmod>2022-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/categories/trouble/Hadoop/</loc>
+    <lastmod>2022-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/sqoop/</loc>
     <lastmod>2022-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -426,13 +433,6 @@
   
   <url>
     <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
-    <lastmod>2022-04-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/sqoop/</loc>
     <lastmod>2022-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
