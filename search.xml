@@ -22,6 +22,100 @@
       </tags>
   </entry>
   <entry>
+    <title>Azkaban之flow2.0的使用</title>
+    <url>/2022/04/21/Azkaban%E4%B9%8Bflow2-0%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p style="text-indent:2em;">如果你时间充足，可以移步官网详细了解：https://azkaban.readthedocs.io/en/latest/createFlows.html。也可以跟着本文,快速掌握配置方法，同时避免因官网不详细而跳坑！</p>
+<p style="text-indent:2em;">首先，你需要先创建project文件夹，层级如下：</p>
+<img src="/2022/04/21/Azkaban%E4%B9%8Bflow2-0%E7%9A%84%E4%BD%BF%E7%94%A8/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">在test.project文件里,指定以flow2.0方式配置,内容如下：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">azkaban<span class="operator">-</span>flow<span class="operator">-</span>version: <span class="number">2.0</span></span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">在test.flow里配置工作流，示例如下：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">config:</span><br><span class="line">  retries: <span class="number">2</span></span><br><span class="line">  retry.backoff: <span class="number">30000</span></span><br><span class="line">  failure.emails: xxx<span class="variable">@163</span>.com</span><br><span class="line">  start_date: nil</span><br><span class="line">  stop_date: nil</span><br><span class="line">  flow<span class="operator">-</span>level<span class="operator">-</span><span class="keyword">parameter</span>: <span class="keyword">value</span></span><br><span class="line"></span><br><span class="line">nodes:</span><br><span class="line">  <span class="operator">-</span> name: test</span><br><span class="line">    type: command</span><br><span class="line">    config:</span><br><span class="line">      command: echo &quot;开始节点&quot;</span><br><span class="line">       </span><br><span class="line">#Flow1流：    </span><br><span class="line">  <span class="operator">-</span> name: test_flow1</span><br><span class="line">    type: flow</span><br><span class="line">    config:</span><br><span class="line">      prop: <span class="keyword">value</span></span><br><span class="line">    dependsOn:</span><br><span class="line">      <span class="operator">-</span> test</span><br><span class="line">    nodes:   </span><br><span class="line">      <span class="operator">-</span> name: test_job1</span><br><span class="line">        type: command</span><br><span class="line">        config:</span><br><span class="line">          remark: 备注test_job1</span><br><span class="line">          start_dt: $&#123;start_date&#125;</span><br><span class="line">          stop_dt: $&#123;stop_date&#125;</span><br><span class="line">          command: echo 测试！</span><br><span class="line"></span><br><span class="line">      <span class="operator">-</span> name: test_job2</span><br><span class="line">        type: command</span><br><span class="line">        config:</span><br><span class="line">          start_dt: $&#123;start_date&#125;</span><br><span class="line">          stop_dt: $&#123;stop_date&#125;</span><br><span class="line">          command: echo 测试！</span><br><span class="line">        dependsOn:</span><br><span class="line">         <span class="operator">-</span> test_job1</span><br><span class="line"></span><br><span class="line">      <span class="operator">-</span> name: test_job3</span><br><span class="line">        type: command</span><br><span class="line">        config:</span><br><span class="line">          start_dt: $&#123;start_date&#125;</span><br><span class="line">          stop_dt: $&#123;stop_date&#125;</span><br><span class="line">          command: echo 测试！</span><br><span class="line">        dependsOn:</span><br><span class="line">         <span class="operator">-</span> test_job1</span><br><span class="line">  </span><br><span class="line">      <span class="operator">-</span> name: test_job4</span><br><span class="line">        type: command</span><br><span class="line">        config:</span><br><span class="line">          start_dt: $&#123;start_date&#125;</span><br><span class="line">          stop_dt: $&#123;stop_date&#125;</span><br><span class="line">          command: echo 测试！</span><br><span class="line">        <span class="keyword">condition</span>: all_done   #设置不论test_job2 、test_job3是否成功,只要执行了，test_job4就执行。</span><br><span class="line">        </span><br><span class="line">        ##################################################################################################</span><br><span class="line">        #all_done 对应的作业状态 FAILED, KILLED, SUCCEEDED, SKIPPED, FAILED_SUCCEEDED, CANCELLED</span><br><span class="line">        #all_success \ one_success 对应的作业状态 SUCCEEDED, SKIPPED, FAILED_SUCCEEDED</span><br><span class="line">        #all_failed \ one_failed 对应的作业状态 FAILED, KILLED, CANCELLED</span><br><span class="line">        ##################################################################################################</span><br><span class="line">        </span><br><span class="line">        dependsOn:</span><br><span class="line">         <span class="operator">-</span> test_job2  </span><br><span class="line">         <span class="operator">-</span> test_job3  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">#Flow2流：    </span><br><span class="line">  <span class="operator">-</span> name: test_flow2</span><br><span class="line">    type: flow</span><br><span class="line">    config:</span><br><span class="line">      prop: <span class="keyword">value</span></span><br><span class="line">    dependsOn:</span><br><span class="line">      <span class="operator">-</span> test_flow1</span><br><span class="line">    nodes:     </span><br><span class="line">      <span class="operator">-</span> name: test_job5</span><br><span class="line">        type: command</span><br><span class="line">        config:</span><br><span class="line">          start_dt: $&#123;start_date&#125;</span><br><span class="line">          stop_dt: $&#123;stop_date&#125;</span><br><span class="line">          command: echo 测试！  </span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">打包压缩,上传Azlaban，Graph如下：</p>
+<img src="/2022/04/21/Azkaban%E4%B9%8Bflow2-0%E7%9A%84%E4%BD%BF%E7%94%A8/2.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">需注意,同一个project里,可以分出多个文件夹,对应多个workflow。但同一个workflow，只允许出现一个.flow文件。在.flow文件里，可以配置多个流。在这个例子中有两个流，
+流内的job只能依赖于同一个流的job，而流只能依赖于上一个流或者独立的job，不能依赖于上一个流内的job。流与流，job与job间可以配置条件依赖,如本例中的job4，当job2/job3执行后即执行，不管失败与否。在流的顶部可以配置公共参数,包括预定参数与自定义参数。如有问题，可邮件联系作者哦！</p>
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Azkaban</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Azkaban</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+Next调整首页文章间距[绝对有效]</title>
+    <url>/2022/02/17/Hexo-Next%E8%B0%83%E6%95%B4%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E9%97%B4%E8%B7%9D/</url>
+    <content><![CDATA[<p style="text-indent:2em;">夜深了,话不多说,直接摆方案：</p>
+<p style="text-indent:2em;">找到Blog\themes\next\source\css\_schemes\Mist\_posts-expand.styl,定位.post-block:not(:first-child)</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> .post<span class="operator">-</span>block:<span class="keyword">not</span>(:<span class="keyword">first</span><span class="operator">-</span>child) &#123;</span><br><span class="line">   margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>
+<p style="text-indent:2em;">如果按网上设置了文章阴影效果,记得修改一下Blog\themes\next\source\css\_common\components\post\post.styl配置,把文章顶部距离调为0,这样首页才是想要的效果！</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">完事儿,大功告成！觉得有用就留个言吧！</p> ]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hive源码解析(持续更新)</title>
+    <url>/2022/04/18/Hive%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</url>
+    <content><![CDATA[<img src="/2022/04/18/Hive%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/1.jpg" class title="Hive源码解析">
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Hive</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hive表误删导致数据丢失的解决方案</title>
+    <url>/2022/03/04/Hive%E8%A1%A8%E8%AF%AF%E5%88%A0%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p style="text-indent:2em;">不小心把Hive表删了咋办？主管还有30秒到达战场？</p>
+<p style="text-indent:2em;">莫慌,Hive能用这么久,数据安全性还是很ok的。</p>
+<p style="text-indent:2em;">如果是外部表,那恭喜你,数据还在,重新建表,路径保持一致，然后执行以下命令恢复表的元数据：</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MSCK REPAIR <span class="keyword">TABLE</span> default.tbl;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">如果是内部表,去HDFS下找到回收站目录,找到删除的表,我的路径是：/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl</p>
+<p style="text-indent:2em;">进去目录,发现数据还在(默认保存3天),接下来复制到表路径下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">cp</span> \ </span><br><span class="line">/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl \     </span><br><span class="line">/user/hive/warehouse//default.db/tbl</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">select以下,发现数据已经恢复了,笑了半截主管来了！</p>]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Hive</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mysql报错Row was cut by GROUP_CONCAT的解决方法</title>
     <url>/2022/02/15/MysqlGroupConcatWasCutError/</url>
     <content><![CDATA[<p style="text-indent:2em;">MySQL执行存储过程报错：Row XXX was cut by GROUP_CONCAT(),但把语句copy出来执行就不报错,怎么办？</p>
@@ -115,29 +209,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hadoop进程异常检测重启</title>
-    <url>/2022/02/09/hadoopRoot/</url>
-    <content><![CDATA[<p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。</p>
-<p style="text-indent:2em;">这里介绍一个shell方法，每间隔60s检测一次，发现异常即重启，并将重启记录写入MySQL，便于后续分析</p>
-<p style="text-indent:2em;">首先要在MySQL的bigdata库建表:</p>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bigdata.hadoop_process_log (</span><br><span class="line">	`node` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;节点&#x27;</span>,</span><br><span class="line">	`typeName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;进程类型&#x27;</span>,</span><br><span class="line">	`logtime` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span></span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 COMMENT<span class="operator">=</span><span class="string">&#x27;大数据hadoop进程重启记录表&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>脚本如下：<BR></BR></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment"># 功能：检测Hadoop进程</span></span><br><span class="line"><span class="comment"># Create：hst</span></span><br><span class="line"><span class="comment"># Time：2022-01-25 14:50:00</span></span><br><span class="line"><span class="comment"># Last Modify Developer：husongtao</span></span><br><span class="line"><span class="comment"># Last Modify Time：2022-01-25 14:50:00</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">rebootYarnFlag=0</span><br><span class="line">rebootHdfsFlag=0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法1：检测hadoop进程</span></span><br><span class="line"><span class="function"><span class="title">Fn_CheckHdp</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	ssh -p 52001 <span class="variable">$1</span> <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/jps|egrep -w <span class="variable">$2</span>&quot;</span> &gt; /dev/null</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法2：重启hadoop进程</span></span><br><span class="line"><span class="comment">#为调用方便，ip端口写死在里面，需手动修改</span></span><br><span class="line"><span class="function"><span class="title">Fn_RebootHdp</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line">	<span class="string">&quot;yarn&quot;</span>)</span><br><span class="line">	ssh -p 52001 hadoop3-215 <span class="string">&quot;sh <span class="variable">$HADOOP_HOME</span>/sbin/stop-yarn.sh; sh <span class="variable">$HADOOP_HOME</span>/sbin/start-yarn.sh&quot;</span>  &gt; /dev/null</span><br><span class="line">	rebootYarnFlag=1</span><br><span class="line">	;;</span><br><span class="line">	<span class="string">&quot;hdfs&quot;</span>)</span><br><span class="line">	ssh -p 52001 hadoop3-215 <span class="string">&quot;sh <span class="variable">$HADOOP_HOME</span>/sbin/stop-dfs.sh;sh <span class="variable">$HADOOP_HOME</span>/sbin/start-dfs.sh&quot;</span>   &gt; /dev/null</span><br><span class="line">	rebootHdfsFlag=1</span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="keyword">esac</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法3：hadoop进程失败记录写入MySQL</span></span><br><span class="line"><span class="comment">#为调用方便，ip端口用户密码 写死在里面，需手动修改</span></span><br><span class="line"><span class="function"><span class="title">Fn_LoadHdpLog</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	sql=<span class="string">&quot;insert into hadoop_process_log(node,typename) values(\&quot;<span class="variable">$1</span>\&quot;,\&quot;<span class="variable">$2</span>\&quot;)&quot;</span></span><br><span class="line">	<span class="comment">#echo &quot;$sql&quot;</span></span><br><span class="line">	mysql -hhadoop3-217 -uroot -p111111 -P23306 bigdata -e <span class="string">&quot;<span class="variable">$sql</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#=================== 检查ResourceManager、NameNode服务器 ===================</span></span><br><span class="line">	<span class="comment">#1.检测 ResourceManager 进程</span></span><br><span class="line">	Fn_CheckHdp hadoop3-215 ResourceManager</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;ResourceManager异常,即将重启YARN进程&quot;</span></span><br><span class="line">		Fn_RebootHdp yarn</span><br><span class="line">		Fn_LoadHdpLog hadoop3-215 ResourceManager</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">#2.检测 NameNode 进程</span></span><br><span class="line">	Fn_CheckHdp hadoop3-215 NameNode</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;NameNode异常,即将重启HDFS进程&quot;</span></span><br><span class="line">		Fn_RebootHdp hdfs</span><br><span class="line">		Fn_LoadHdpLog hadoop3-215 NameNode</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">#=================== 检查其他服务器 ===================	</span></span><br><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> hadoop3-213 hadoop3-214 hadoop3-215  hadoop3-216 hadoop3-217 hadoop3-218 hadoop3-219</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> ====================    <span class="variable">$host</span>    ====================</span><br><span class="line"></span><br><span class="line">	<span class="comment">##1.检测 NodeManager 进程</span></span><br><span class="line">	Fn_CheckHdp <span class="variable">$host</span> NodeManager</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ] &amp;&amp; [ <span class="variable">$rebootYarnFlag</span> -eq 0 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;NodeManager异常,即将重启yarn进程&quot;</span></span><br><span class="line">		Fn_RebootHdp yarn</span><br><span class="line">		Fn_LoadHdpLog <span class="variable">$host</span> NodeManager</span><br><span class="line">	<span class="keyword">fi</span>	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">##2.检测 DataNode 进程</span></span><br><span class="line">	Fn_CheckHdp <span class="variable">$host</span> DataNode</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ] &amp;&amp; [ <span class="variable">$rebootHdfsFlag</span> -eq 0 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;DataNode异常,即将重启HDFS进程&quot;</span></span><br><span class="line">		Fn_RebootHdp hdfs</span><br><span class="line">		Fn_LoadHdpLog <span class="variable">$host</span> DataNode</span><br><span class="line">	<span class="keyword">fi</span>	</span><br><span class="line">	</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hadoop进程检测完毕！&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<p>各位小伙伴记得修改哦，不要把主机端口等参数弄错了！最后后台运行就可以了，日志表如下图：<BR> </BR></p>
-<img src="/2022/02/09/hadoopRoot/1.png" class title="这是一个新的博客的图片的说明">
-]]></content>
-      <categories>
-        <category>大数据</category>
-        <category>Hadoop</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hadoop单节点磁盘突然占满怎么处理</title>
     <url>/2022/02/17/hadoop%E5%8D%95%E8%8A%82%E7%82%B9%E7%A3%81%E7%9B%98%E7%AA%81%E7%84%B6%E5%8D%A0%E6%BB%A1%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p style="text-indent:2em;">如果是单个node磁盘被占满,可以排除数据暴增的情况。</p>
@@ -202,6 +273,29 @@
       </tags>
   </entry>
   <entry>
+    <title>hadoop进程异常检测重启</title>
+    <url>/2022/02/09/hadoopRoot/</url>
+    <content><![CDATA[<p style="text-indent:2em;">各位在搭建完Hadoop后，是不是会偶尔出现进程挂掉的情况呢？这里的进程指的是NameNode/DataNode/ResourceManager/NodeManager等。在排除搭建时有问题外，写一套自动检测重启的脚本，就非常有必要了。</p>
+<p style="text-indent:2em;">这里介绍一个shell方法，每间隔60s检测一次，发现异常即重启，并将重启记录写入MySQL，便于后续分析</p>
+<p style="text-indent:2em;">首先要在MySQL的bigdata库建表:</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bigdata.hadoop_process_log (</span><br><span class="line">	`node` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;节点&#x27;</span>,</span><br><span class="line">	`typeName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;进程类型&#x27;</span>,</span><br><span class="line">	`logtime` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span></span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 COMMENT<span class="operator">=</span><span class="string">&#x27;大数据hadoop进程重启记录表&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>脚本如下：<BR></BR></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment"># 功能：检测Hadoop进程</span></span><br><span class="line"><span class="comment"># Create：hst</span></span><br><span class="line"><span class="comment"># Time：2022-01-25 14:50:00</span></span><br><span class="line"><span class="comment"># Last Modify Developer：husongtao</span></span><br><span class="line"><span class="comment"># Last Modify Time：2022-01-25 14:50:00</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">rebootYarnFlag=0</span><br><span class="line">rebootHdfsFlag=0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法1：检测hadoop进程</span></span><br><span class="line"><span class="function"><span class="title">Fn_CheckHdp</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	ssh -p 52001 <span class="variable">$1</span> <span class="string">&quot;<span class="variable">$JAVA_HOME</span>/bin/jps|egrep -w <span class="variable">$2</span>&quot;</span> &gt; /dev/null</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法2：重启hadoop进程</span></span><br><span class="line"><span class="comment">#为调用方便，ip端口写死在里面，需手动修改</span></span><br><span class="line"><span class="function"><span class="title">Fn_RebootHdp</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line">	<span class="string">&quot;yarn&quot;</span>)</span><br><span class="line">	ssh -p 52001 hadoop3-215 <span class="string">&quot;sh <span class="variable">$HADOOP_HOME</span>/sbin/stop-yarn.sh; sh <span class="variable">$HADOOP_HOME</span>/sbin/start-yarn.sh&quot;</span>  &gt; /dev/null</span><br><span class="line">	rebootYarnFlag=1</span><br><span class="line">	;;</span><br><span class="line">	<span class="string">&quot;hdfs&quot;</span>)</span><br><span class="line">	ssh -p 52001 hadoop3-215 <span class="string">&quot;sh <span class="variable">$HADOOP_HOME</span>/sbin/stop-dfs.sh;sh <span class="variable">$HADOOP_HOME</span>/sbin/start-dfs.sh&quot;</span>   &gt; /dev/null</span><br><span class="line">	rebootHdfsFlag=1</span><br><span class="line">	;;</span><br><span class="line">	*)</span><br><span class="line">	<span class="keyword">esac</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法3：hadoop进程失败记录写入MySQL</span></span><br><span class="line"><span class="comment">#为调用方便，ip端口用户密码 写死在里面，需手动修改</span></span><br><span class="line"><span class="function"><span class="title">Fn_LoadHdpLog</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	sql=<span class="string">&quot;insert into hadoop_process_log(node,typename) values(\&quot;<span class="variable">$1</span>\&quot;,\&quot;<span class="variable">$2</span>\&quot;)&quot;</span></span><br><span class="line">	<span class="comment">#echo &quot;$sql&quot;</span></span><br><span class="line">	mysql -hhadoop3-217 -uroot -p111111 -P23306 bigdata -e <span class="string">&quot;<span class="variable">$sql</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#=================== 检查ResourceManager、NameNode服务器 ===================</span></span><br><span class="line">	<span class="comment">#1.检测 ResourceManager 进程</span></span><br><span class="line">	Fn_CheckHdp hadoop3-215 ResourceManager</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;ResourceManager异常,即将重启YARN进程&quot;</span></span><br><span class="line">		Fn_RebootHdp yarn</span><br><span class="line">		Fn_LoadHdpLog hadoop3-215 ResourceManager</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">#2.检测 NameNode 进程</span></span><br><span class="line">	Fn_CheckHdp hadoop3-215 NameNode</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;NameNode异常,即将重启HDFS进程&quot;</span></span><br><span class="line">		Fn_RebootHdp hdfs</span><br><span class="line">		Fn_LoadHdpLog hadoop3-215 NameNode</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">#=================== 检查其他服务器 ===================	</span></span><br><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> hadoop3-213 hadoop3-214 hadoop3-215  hadoop3-216 hadoop3-217 hadoop3-218 hadoop3-219</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> ====================    <span class="variable">$host</span>    ====================</span><br><span class="line"></span><br><span class="line">	<span class="comment">##1.检测 NodeManager 进程</span></span><br><span class="line">	Fn_CheckHdp <span class="variable">$host</span> NodeManager</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ] &amp;&amp; [ <span class="variable">$rebootYarnFlag</span> -eq 0 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;NodeManager异常,即将重启yarn进程&quot;</span></span><br><span class="line">		Fn_RebootHdp yarn</span><br><span class="line">		Fn_LoadHdpLog <span class="variable">$host</span> NodeManager</span><br><span class="line">	<span class="keyword">fi</span>	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">##2.检测 DataNode 进程</span></span><br><span class="line">	Fn_CheckHdp <span class="variable">$host</span> DataNode</span><br><span class="line">	<span class="keyword">if</span> [ 0 -ne $? ] &amp;&amp; [ <span class="variable">$rebootHdfsFlag</span> -eq 0 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;DataNode异常,即将重启HDFS进程&quot;</span></span><br><span class="line">		Fn_RebootHdp hdfs</span><br><span class="line">		Fn_LoadHdpLog <span class="variable">$host</span> DataNode</span><br><span class="line">	<span class="keyword">fi</span>	</span><br><span class="line">	</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hadoop进程检测完毕！&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>各位小伙伴记得修改哦，不要把主机端口等参数弄错了！最后后台运行就可以了，日志表如下图：<BR> </BR></p>
+<img src="/2022/02/09/hadoopRoot/1.png" class title="这是一个新的博客的图片的说明">
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+Next为首页文章添加边框阴影[绝对有效]</title>
     <url>/2022/02/17/next%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86%E9%98%B4%E5%BD%B1-%E7%BB%9D%E5%AF%B9%E6%9C%89%E6%95%88/</url>
     <content><![CDATA[<p style="text-indent:2em;">别人的博客首页文章有边框和阴影,效果不错,毕竟不加边框看着太low了。但是网上的方法都没效果,自己也不熟悉hexo,真让人头疼！</p>
@@ -223,6 +317,29 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
+    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
+<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
+
+<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
+      <categories>
+        <category>Navicat</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>Navicat</tag>
       </tags>
   </entry>
   <entry>
@@ -252,29 +369,6 @@
       </tags>
   </entry>
   <entry>
-    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
-    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
-<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
-<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
-
-<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
-      <categories>
-        <category>Navicat</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>Navicat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>诗集《记忆的永恒》</title>
     <url>/2022/04/15/%E8%AF%97%E9%9B%86%E3%80%8A%E8%AE%B0%E5%BF%86%E7%9A%84%E6%B0%B8%E6%81%92%E3%80%8B/</url>
     <content><![CDATA[<br>
@@ -291,29 +385,6 @@
       </categories>
       <tags>
         <tag>文学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hive源码解析(持续更新)</title>
-    <url>/2022/04/18/Hive%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</url>
-    <content><![CDATA[<img src="/2022/04/18/Hive%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/1.jpg" class title="Hive源码解析">
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>大数据</category>
-        <category>Hive</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>Hive</tag>
       </tags>
   </entry>
   <entry>
@@ -336,44 +407,6 @@
         <tag>文学</tag>
         <tag>读后感</tag>
         <tag>三体</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo+Next调整首页文章间距[绝对有效]</title>
-    <url>/2022/02/17/Hexo-Next%E8%B0%83%E6%95%B4%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E9%97%B4%E8%B7%9D/</url>
-    <content><![CDATA[<p style="text-indent:2em;">夜深了,话不多说,直接摆方案：</p>
-<p style="text-indent:2em;">找到Blog\themes\next\source\css\_schemes\Mist\_posts-expand.styl,定位.post-block:not(:first-child)</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> .post<span class="operator">-</span>block:<span class="keyword">not</span>(:<span class="keyword">first</span><span class="operator">-</span>child) &#123;</span><br><span class="line">   margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">修改成以上代码就行了！原先配置只有margin-top: 130px;自己改改！</p>
-<p style="text-indent:2em;">如果按网上设置了文章阴影效果,记得修改一下Blog\themes\next\source\css\_common\components\post\post.styl配置,把文章顶部距离调为0,这样首页才是想要的效果！</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.use<span class="operator">-</span>motion &#123;</span><br><span class="line">  if (hexo<span class="operator">-</span>config(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    .post<span class="operator">-</span>block&#123;</span><br><span class="line">	 opacity: <span class="number">0</span>;</span><br><span class="line">     margin<span class="operator">-</span>top: <span class="number">0</span>px;</span><br><span class="line">     margin<span class="operator">-</span>bottom: <span class="number">0</span>px;</span><br><span class="line">     padding: <span class="number">25</span>px;</span><br><span class="line">     <span class="operator">-</span>webkit<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">     <span class="operator">-</span>moz<span class="operator">-</span>box<span class="operator">-</span>shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">41</span>,<span class="number">36</span>,<span class="number">33</span>, <span class="number">1</span>);</span><br><span class="line">	&#125; .pagination, .comments &#123;</span><br><span class="line">      opacity: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">完事儿,大功告成！觉得有用就留个言吧！</p> ]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hive表误删导致数据丢失的解决方案</title>
-    <url>/2022/03/04/Hive%E8%A1%A8%E8%AF%AF%E5%88%A0%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p style="text-indent:2em;">不小心把Hive表删了咋办？主管还有30秒到达战场？</p>
-<p style="text-indent:2em;">莫慌,Hive能用这么久,数据安全性还是很ok的。</p>
-<p style="text-indent:2em;">如果是外部表,那恭喜你,数据还在,重新建表,路径保持一致，然后执行以下命令恢复表的元数据：</p>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MSCK REPAIR <span class="keyword">TABLE</span> default.tbl;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">如果是内部表,去HDFS下找到回收站目录,找到删除的表,我的路径是：/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl</p>
-<p style="text-indent:2em;">进去目录,发现数据还在(默认保存3天),接下来复制到表路径下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">cp</span> \ </span><br><span class="line">/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl \     </span><br><span class="line">/user/hive/warehouse//default.db/tbl</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">select以下,发现数据已经恢复了,笑了半截主管来了！</p>]]></content>
-      <categories>
-        <category>大数据</category>
-        <category>Hive</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>Hive</tag>
       </tags>
   </entry>
 </search>
