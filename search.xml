@@ -24,7 +24,8 @@
   <entry>
     <title>Azkaban之flow2.0的使用</title>
     <url>/2022/04/21/Azkaban%E4%B9%8Bflow2-0%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p style="text-indent:2em;">如果你时间充足，可以移步官网详细了解：https://azkaban.readthedocs.io/en/latest/createFlows.html。也可以跟着本文,快速掌握配置方法，同时避免因官网不详细而跳坑！</p>
+    <content><![CDATA[<p style="text-indent:2em;">如果你时间充足，可以移步官网详细了解。也可以跟着本文,快速掌握配置方法，同时避免因官网不详细而跳坑！</p>
+<p style="text-indent:2em;">官网：https://azkaban.readthedocs.io/en/latest/createFlows.html</p>
 <p style="text-indent:2em;">首先，你需要先创建project文件夹，层级如下：</p>
 <img src="/2022/04/21/Azkaban%E4%B9%8Bflow2-0%E7%9A%84%E4%BD%BF%E7%94%A8/1.jpg" class title="这是一个新的博客的图片的说明">
 <p style="text-indent:2em;">在test.project文件里,指定以flow2.0方式配置,内容如下：</p>
@@ -72,27 +73,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hive表误删导致数据丢失的解决方案</title>
-    <url>/2022/03/04/Hive%E8%A1%A8%E8%AF%AF%E5%88%A0%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p style="text-indent:2em;">不小心把Hive表删了咋办？主管还有30秒到达战场？</p>
-<p style="text-indent:2em;">莫慌,Hive能用这么久,数据安全性还是很ok的。</p>
-<p style="text-indent:2em;">如果是外部表,那恭喜你,数据还在,重新建表,路径保持一致，然后执行以下命令恢复表的元数据：</p>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MSCK REPAIR <span class="keyword">TABLE</span> default.tbl;</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">如果是内部表,去HDFS下找到回收站目录,找到删除的表,我的路径是：/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl</p>
-<p style="text-indent:2em;">进去目录,发现数据还在(默认保存3天),接下来复制到表路径下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">cp</span> \ </span><br><span class="line">/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl \     </span><br><span class="line">/user/hive/warehouse//default.db/tbl</span><br></pre></td></tr></table></figure>
-<p style="text-indent:2em;">select以下,发现数据已经恢复了,笑了半截主管来了！</p>]]></content>
-      <categories>
-        <category>大数据</category>
-        <category>Hive</category>
-      </categories>
-      <tags>
-        <tag>大数据</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hive源码解析(持续更新)</title>
     <url>/2022/04/18/Hive%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</url>
     <content><![CDATA[<img src="/2022/04/18/Hive%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/1.jpg" class title="Hive源码解析">
@@ -106,6 +86,27 @@
 
 
 ]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Hive</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hive表误删导致数据丢失的解决方案</title>
+    <url>/2022/03/04/Hive%E8%A1%A8%E8%AF%AF%E5%88%A0%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p style="text-indent:2em;">不小心把Hive表删了咋办？主管还有30秒到达战场？</p>
+<p style="text-indent:2em;">莫慌,Hive能用这么久,数据安全性还是很ok的。</p>
+<p style="text-indent:2em;">如果是外部表,那恭喜你,数据还在,重新建表,路径保持一致，然后执行以下命令恢复表的元数据：</p>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MSCK REPAIR <span class="keyword">TABLE</span> default.tbl;</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">如果是内部表,去HDFS下找到回收站目录,找到删除的表,我的路径是：/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl</p>
+<p style="text-indent:2em;">进去目录,发现数据还在(默认保存3天),接下来复制到表路径下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">cp</span> \ </span><br><span class="line">/user/hive/.Trash/Current/user/hive/warehouse/default.db/tbl \     </span><br><span class="line">/user/hive/warehouse//default.db/tbl</span><br></pre></td></tr></table></figure>
+<p style="text-indent:2em;">select以下,发现数据已经恢复了,笑了半截主管来了！</p>]]></content>
       <categories>
         <category>大数据</category>
         <category>Hive</category>
@@ -337,6 +338,44 @@
       </tags>
   </entry>
   <entry>
+    <title>sqlserver使用语法整理</title>
+    <url>/2022/04/21/sqlserver%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>参考资料：<a href="https://www.it610.com/article/1291207212026372096.html">https://www.it610.com/article/1291207212026372096.html</a></p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>一、变量</p>
+<p>①变量定义<br>@@开头：全局变量(系统定义，不可修改)<br>@开头：局部变量(用户定义，生命周期在批处理范围内)<br>②变量赋值<br>declare定义,set和select赋值(set用于赋值与表数据无关的场景,否则使用select)<br>③变量输出<br>print或select</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>二、运算符</p>
+<p>和其他MySQL大同小异</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>三、逻辑运算符</p>
+<p>all（所有）、and(与）、any（任意一个）、<br>between(两者之间)、exists(存在)、in(在范围内)、<br>like(匹配)、not(非)、or(或)、some(任意一个)<br>一元运算符+（正）、-（负）、~（取反）</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>四、SQL语法</p>
+<p>①不同点<br>top 1 字段  ：取第一条<br>as 用户名   ：中文别名可以不加引号<br>‘a’+’b’     ：字符串拼接</p>
+<p>获取上月月份↓<br>select CONVERT(NVARCHAR(6), DATEADD(MONTH, -1,LTRIM(202105)+ ‘01’), 112)    –&gt;  202104<br>可通过设置字符串长度实现裁剪 ↓<br>select CONVERT(VARCHAR(19),GETDATE(),112)    –&gt;  20210605<br>select CONVERT(VARCHAR(10),GETDATE(),126)    –&gt;  2021-06-08<br>select CONVERT(VARCHAR(19),GETDATE(),120)    –&gt;  2021-06-08 14:21:33<br>select CONVERT(VARCHAR(19),GETDATE(),126)    –&gt;  2021-06-08T14:23:40<br>select CONVERT(VARCHAR(25),GETDATE(),126)    –&gt;  2021-06-08T14:25:52.620<br>select CONVERT(VARCHAR(25),GETDATE(),121)    –&gt;  2021-06-08 14:24:56.353</p>
+<p>②临时表<br>select 字段 INTO  #tmp2  [IN externaldatabase]：创建表的备份复件[或插入新表]<br>#tmp2 本地临时表,只对当前用户连接可见<br>##tmp2 全局临时表,对任何用户可见</p>
+<p>③存储过程<br>exec 过程名 ：执行存储过程</p>
+<p>④创建索引<br>CREATE INDEX idx_temp ON #t_family_base_level_transform(family_id,f_id);</p>
+<p>⑤索引分类<br>(1) 唯一索引(UNIQUE)：不允许两行具有相同的索引值（创建了唯一约束，系统将自动创建唯一索引）</p>
+<p>在表上创建唯一索引。唯一索引是不允许其中任意两行具有相同索引值的索引。</p>
+<p>SQL Server 2005 Compact Edition (SQL Server Compact Edition) 在创建索引后将检查是否存在重复的值（如果数据已存在），并在每次使用 INSERT 或 UPDATE 语句添加数据时执行该检查操作。必须先消除重复值，然后才可对列创建唯一索引。如果存在重复的键值，则将取消 CREATE INDEX 语句并返回错误。只能对定义为 NOT NULL 的列创建唯一索引。</p>
+<p>如果存在唯一索引，则可能生成重复键值的 UPDATE 或 INSERT 语句将回滚，且 SQL Server Compact Edition 返回错误。即使 UPDATE 或 INSERT 语句更改许多行，但只要存在一个重复，上面这一点也将成立。</p>
+<p>(2) 主键索引：主键索引要求主键中的每个值是唯一的，（创建主键自动创建主键索引）<br>(3) 聚集索引(CLUSTERED)：表中各行的物理顺序与键值的逻辑（索引）顺序相同，表中只能包含一个聚集索引，主键列默认为聚集索引<br>(4) 非聚集索引(NONCLUSTERED)：表中各行的物理顺序与键值的逻辑（索引）顺序不匹配，表中可以有249个非聚集索引<br>3.创建索引的标准：用语频繁搜索的列；用语对数据进行排序的列<br>注意：如果表中仅有几行，或列中只包含几个不同的值，不推荐创建索引，因为SQL Server 在小型表中用索引搜索数据所花的时间比逐行搜索更长。<br>————————————————<br>版权声明：本文为CSDN博主「乐在‘奇’中」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/qq_42689281/article/details/86974809">https://blog.csdn.net/qq_42689281/article/details/86974809</a></p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>五、触发器</p>
+<p>①触发器的定义<br>触发器（Trigger）是针对某个表或视图所编写的特殊存储过程，它不能被显式地调用，<br>而是当该表或视图中的数据发生添加INSERT、更新UPDATE或删除DELETE等事件时自动被执行。</p>
+<p>②触发器的作用<br>主要作用是实现由主键和强制数据库间的引用完整性；<br>级联修改数据库中所有相关的表，自动触发其它与之相关的操作；<br>跟踪变化，撤销或回滚违法操作，防止非法修改数据；<br>返回自定义的错误消息，约束无法返回信息，而触发器可以；<br>触发器可以调用更多的存储过程；外键所不能保证的复杂的参照完整性和数据一致性</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>六、优化</p>
+<p>①WITH (NOLOCK):<br>     作用： 改善大量查询的环境中数据集被lock的现象，以改善查询性能(相当于读未提交的隔离级别)。<br>     缺陷： 可能会造成脏读(修改后又撤销,两次读结果不同)<br>            可能会造成不可重复读(读之后又被修改,两次读结果不同)<br>            可能会造成幻读(根据条件查一批数据,第一次查询后被修改了,造成两次数据条目不一致)<br>  nolock和with(nolock)的几个小区别：<br>1、SQL05中的同义词，只支持with(nolock);<br>2、with(nolock)的写法非常容易再指定索引。<br>3、跨服务器查询语句时不能用with (nolock) 只能用nolock，同一个服务器查询时 则with(nolock)和nolock都可以用</p>
+<p>②SET NOCOUNT ON<br>     作用：不向客户端返回受影响的行数,减少了网络流量,可以显著提高性能。</p>
+<p>文章参考：<a href="https://www.cnblogs.com/skyay/p/12558352.html">https://www.cnblogs.com/skyay/p/12558352.html</a></p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>SqlServer</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>SqlServer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sqoop使用笔记</title>
     <url>/2021/02/09/sqoopNote/</url>
     <content><![CDATA[<p>此文章记录个人使用sqoop遇到的问题及方法<br>(一)基础参数</p>
@@ -360,6 +399,29 @@
       <tags>
         <tag>大数据</tag>
         <tag>sqoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
+    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
+<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
+<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
+
+<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
+<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
+
+<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
+      <categories>
+        <category>Navicat</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>Navicat</tag>
       </tags>
   </entry>
   <entry>
@@ -401,29 +463,6 @@
         <tag>文学</tag>
         <tag>读后感</tag>
         <tag>三体</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows更新后Navicat连不上sqlserver的解决办法</title>
-    <url>/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p style="text-indent:2em;">最近Window10一直提醒更新,历经数次失败,终于更新成功了。</p>
-<p style="text-indent:2em;">但是我的Navicat Premium却连不上sqlserver了(Mysql正常),每次连接就报错：</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/1.jpg" class title="这是一个新的博客的图片的说明">
-<p style="text-indent:2em;">网上告诉我要重新安装,但未免过于麻烦,最后找到了方法。</p>
-
-<p style="text-indent:2em;">1.编辑数据库连接,高级选项</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">2.Navicat Client驱动程序,选你匹配的ODBC,测试连接</p>
-<img src="/2022/01/18/windows%E6%9B%B4%E6%96%B0%E5%90%8ENavicat%E8%BF%9E%E4%B8%8D%E4%B8%8Asqlserver%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/3.jpg" class title="这是一个新的博客的图片的说明">
-
-<p style="text-indent:2em;">测通后重新连接就没问题啦！</p>]]></content>
-      <categories>
-        <category>Navicat</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>Navicat</tag>
       </tags>
   </entry>
 </search>
