@@ -278,13 +278,6 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/shell/</loc>
-    <lastmod>2022-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hst15701102464.github.io/tags/hadoop/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -292,7 +285,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/sqoop/</loc>
+    <loc>https://hst15701102464.github.io/tags/shell/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -306,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://hst15701102464.github.io/tags/sqoop/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -321,6 +314,13 @@
   
   <url>
     <loc>https://hst15701102464.github.io/tags/Navicat/</loc>
+    <lastmod>2022-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hst15701102464.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -378,14 +378,14 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/trouble/</loc>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MySQL/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MySQL/</loc>
+    <loc>https://hst15701102464.github.io/categories/trouble/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -406,6 +406,13 @@
   </url>
   
   <url>
+    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/SqlServer/</loc>
+    <lastmod>2022-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/sqoop/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -413,7 +420,7 @@
   </url>
   
   <url>
-    <loc>https://hst15701102464.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/SqlServer/</loc>
+    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -449,13 +456,6 @@
   
   <url>
     <loc>https://hst15701102464.github.io/categories/%E7%94%B5%E5%AD%90%E4%B9%A6/</loc>
-    <lastmod>2022-06-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hst15701102464.github.io/categories/Navicat/</loc>
     <lastmod>2022-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
